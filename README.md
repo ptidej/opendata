@@ -1,4 +1,4 @@
-# seodin
+# Software Engineering Open Data Infrastructure (SEODIN)
 This application was generated using JHipster 4.5.2, you can find documentation and help at [https://jhipster.github.io/documentation-archive/v4.5.2](https://jhipster.github.io/documentation-archive/v4.5.2).
 
 ## Development
