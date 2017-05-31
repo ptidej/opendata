@@ -1,0 +1,159 @@
+entity Study {
+	title String required
+    description String
+    author String
+}
+
+entity SoftwareSystem {
+	tag String
+}
+
+entity Task {
+	tag String
+}
+
+entity Developer {
+	name String required
+}
+
+entity Interview {
+	tag String
+    description String
+    registred LocalDate
+}
+
+entity ThinkAloud {
+	tag String
+    description String
+    registred LocalDate
+}
+
+entity Diary {
+	uri String
+    registred LocalDate
+    status ArtifactStatus
+}
+
+
+entity Audio {
+	tag String
+    description String
+    duration Integer
+    uri String
+    status ArtifactStatus
+}
+
+entity Video {
+	tag String
+    description String
+    duration Integer
+    uri String
+    status ArtifactStatus
+}
+
+entity Note {
+	tag String
+    description String
+    uri String
+    status ArtifactStatus
+}
+
+entity Defect {
+	ticket String
+    summary String
+    description String
+    status DefectStatus
+    resolution Resolution
+    severity Severity
+    priority Priority
+    created LocalDate
+    modified LocalDate
+    status ArtifactStatus
+}
+
+entity TestCase {
+	tag String
+	uri String
+    status ArtifactStatus
+}
+
+entity InteractiveLog {
+	kind LogKind
+    sourceHandle String
+    origin String
+    delta String
+	registred LocalDate
+    status ArtifactStatus
+}
+
+entity SourceCode {
+	tag String
+	uri String
+    status ArtifactStatus
+}
+
+entity DesignPattern {
+	tag String
+    xmlDescriptor String
+    status ArtifactStatus
+}
+
+relationship OneToMany {
+	Study{developer} to Developer{study(title)},
+    Study{softwareSystem} to SoftwareSystem{study(tag)},
+    SoftwareSystem{sourceCode} to SourceCode{softwareSystem(tag)},
+    SourceCode{designPattern} to DesignPattern{SourceCode(tag)},
+    Developer{interview} to Interview{developer(name)},
+    Developer{diary} to Diary{developer(name)},
+    Developer{thinkAloud} to ThinkAloud{developer(name)},
+    Developer{defect} to Defect{developer(name)},
+    Developer{testCase} to TestCase{developer(name)},
+    Developer{interactiveLog} to InteractiveLog{developer(name)},
+    Interview{audio} to Audio{interview(tag)},
+    Interview{video} to Video{interview(tag)},
+    Interview{note} to Note{interview(tag)},
+    ThinkAloud{Note} to Note{thinkaloud(tag)},
+    ThinkAloud{video} to Video{thinkaloud(tag)}
+}
+relationship OneToOne {
+	Diary{task(tag)} to Task,
+	Diary{softwareSystem(tag)} to SoftwareSystem,
+    TestCase{softwareSystem(tag)} to SoftwareSystem,
+    ThinkAloud{softwareSystem(tag)} to SoftwareSystem
+}
+
+enum LogKind {
+    SELECTION, COMMAND, PREFERENCE
+}
+
+enum DefectStatus {
+    CLOSED, NEW
+}
+
+enum Priority {
+    MINOR, MAJOR, CRITICAL
+}
+
+enum Severity {
+    NONE
+}
+
+enum Resolution {
+    NONE, FIXED, WONTFIX
+}
+
+enum ArtifactStatus {
+    PRIVATE, SUBMITED, PUBLISHED
+}
+
+
+// Set pagination options
+//paginate Study with infinite-scroll
+//paginate Developer with pagination
+
+//dto * with mapstruct
+
+// Set service options to all except few
+//service all with serviceImpl except Employee, Job
+// Set an angular suffix
+//angularSuffix * with seodi

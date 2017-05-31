@@ -1,0 +1,100 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myDefectLabel" jhiTranslate="seodinApp.defect.home.createOrEditLabel">Create or edit a Defect</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!defect.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="defect.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="seodinApp.defect.ticket" for="field_ticket">Ticket</label>
+            <input type="text" class="form-control" name="ticket" id="field_ticket"
+                [(ngModel)]="defect.ticket"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="seodinApp.defect.summary" for="field_summary">Summary</label>
+            <input type="text" class="form-control" name="summary" id="field_summary"
+                [(ngModel)]="defect.summary"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="seodinApp.defect.description" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                [(ngModel)]="defect.description"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="seodinApp.defect.status" for="field_status">Status</label>
+            <select class="form-control" name="status" [(ngModel)]="defect.status" id="field_status" >
+                <option value="PRIVATE" jhiTranslate="seodinApp.ArtifactStatus.PRIVATE">PRIVATE</option>
+                <option value="SUBMITED" jhiTranslate="seodinApp.ArtifactStatus.SUBMITED">SUBMITED</option>
+                <option value="PUBLISHED" jhiTranslate="seodinApp.ArtifactStatus.PUBLISHED">PUBLISHED</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="seodinApp.defect.resolution" for="field_resolution">Resolution</label>
+            <select class="form-control" name="resolution" [(ngModel)]="defect.resolution" id="field_resolution" >
+                <option value="NONE" jhiTranslate="seodinApp.Resolution.NONE">NONE</option>
+                <option value="FIXED" jhiTranslate="seodinApp.Resolution.FIXED">FIXED</option>
+                <option value="WONTFIX" jhiTranslate="seodinApp.Resolution.WONTFIX">WONTFIX</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="seodinApp.defect.severity" for="field_severity">Severity</label>
+            <select class="form-control" name="severity" [(ngModel)]="defect.severity" id="field_severity" >
+                <option value="NONE" jhiTranslate="seodinApp.Severity.NONE">NONE</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="seodinApp.defect.priority" for="field_priority">Priority</label>
+            <select class="form-control" name="priority" [(ngModel)]="defect.priority" id="field_priority" >
+                <option value="MINOR" jhiTranslate="seodinApp.Priority.MINOR">MINOR</option>
+                <option value="MAJOR" jhiTranslate="seodinApp.Priority.MAJOR">MAJOR</option>
+                <option value="CRITICAL" jhiTranslate="seodinApp.Priority.CRITICAL">CRITICAL</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="seodinApp.defect.created" for="field_created">Created</label>
+            <div class="input-group">
+                <input id="field_created" type="text" class="form-control" name="created" ngbDatepicker  #createdDp="ngbDatepicker" [(ngModel)]="defect.created"
+                />
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" (click)="createdDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="seodinApp.defect.modified" for="field_modified">Modified</label>
+            <div class="input-group">
+                <input id="field_modified" type="text" class="form-control" name="modified" ngbDatepicker  #modifiedDp="ngbDatepicker" [(ngModel)]="defect.modified"
+                />
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" (click)="modifiedDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label jhiTranslate="seodinApp.defect.developer" for="field_developer">Developer</label>
+            <select class="form-control" id="field_developer" name="developer" [(ngModel)]="defect.developer" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="developerOption.id === defect.developer?.id ? defect.developer : developerOption" *ngFor="let developerOption of developers; trackBy: trackDeveloperById">{{developerOption.name}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

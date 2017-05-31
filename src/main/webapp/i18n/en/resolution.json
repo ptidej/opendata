@@ -1,0 +1,10 @@
+{
+    "seodinApp": {
+        "Resolution" : {
+            "null": "",
+            "NONE": "NONE",
+            "FIXED": "FIXED",
+            "WONTFIX": "WONTFIX"
+        }
+    }
+}
