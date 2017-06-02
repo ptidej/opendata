@@ -15,6 +15,7 @@ import { SeodinTestCaseModule } from './test-case/test-case.module';
 import { SeodinInteractiveLogModule } from './interactive-log/interactive-log.module';
 import { SeodinSourceCodeModule } from './source-code/source-code.module';
 import { SeodinDesignPatternModule } from './design-pattern/design-pattern.module';
+import { SeodinScriptModule } from './script/script.module';
 /* jhipster-needle-add-entity-module-import - JHipster will add entity modules imports here */
 
 @NgModule({
@@ -34,6 +35,7 @@ import { SeodinDesignPatternModule } from './design-pattern/design-pattern.modul
         SeodinInteractiveLogModule,
         SeodinSourceCodeModule,
         SeodinDesignPatternModule,
+        SeodinScriptModule,
         /* jhipster-needle-add-entity-module - JHipster will add entity modules here */
     ],
     declarations: [],

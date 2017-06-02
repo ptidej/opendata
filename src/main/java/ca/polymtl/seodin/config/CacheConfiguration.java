@@ -74,6 +74,7 @@ public class CacheConfiguration {
             cm.createCache(ca.polymtl.seodin.domain.SourceCode.class.getName(), jcacheConfiguration);
             cm.createCache(ca.polymtl.seodin.domain.SourceCode.class.getName() + ".designPatterns", jcacheConfiguration);
             cm.createCache(ca.polymtl.seodin.domain.DesignPattern.class.getName(), jcacheConfiguration);
+            cm.createCache(ca.polymtl.seodin.domain.Script.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }
