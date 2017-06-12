@@ -39,6 +39,7 @@ export class DeveloperDialogComponent implements OnInit {
         this.studyService.query()
             .subscribe((res: ResponseWrapper) => { this.studies = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
     }
+
     clear() {
         this.activeModal.dismiss('cancel');
     }

@@ -69,7 +69,7 @@ public class VideoResource {
      * @param video the video to update
      * @return the ResponseEntity with status 200 (OK) and with body the updated video,
      * or with status 400 (Bad Request) if the video is not valid,
-     * or with status 500 (Internal Server Error) if the video couldnt be updated
+     * or with status 500 (Internal Server Error) if the video couldn't be updated
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PutMapping("/videos")

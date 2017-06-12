@@ -35,7 +35,7 @@ export class Defect {
         public resolution?: Resolution,
         public severity?: Severity,
         public priority?: Priority,
-        public created?: any,
+        public registred?: any,
         public modified?: any,
         public developer?: Developer,
     ) {

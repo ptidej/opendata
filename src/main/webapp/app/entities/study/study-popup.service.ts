@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { Study } from './study.model';
 import { StudyService } from './study.service';
+
 @Injectable()
 export class StudyPopupService {
     private isOpen = false;

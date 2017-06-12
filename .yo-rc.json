@@ -4,7 +4,7 @@
       "packageName": "ca.polymtl.seodin",
       "nativeLanguage": "en"
     },
-    "jhipsterVersion": "4.5.2",
+    "jhipsterVersion": "4.5.3",
     "baseName": "seodin",
     "packageName": "ca.polymtl.seodin",
     "packageFolder": "ca/polymtl/seodin",
@@ -21,16 +21,69 @@
     "serviceDiscoveryType": "eureka",
     "buildTool": "gradle",
     "enableSocialSignIn": true,
-    "jwtSecretKey": "b5ea5fcf09dde3c7a9b752eed3c3c042738b6de5",
+    "jwtSecretKey": "241089004ca53421c16df67c2b8c012dbef81d2e",
     "clientFramework": "angular2",
-    "useSass": false,
+    "useSass": true,
     "clientPackageManager": "yarn",
     "applicationType": "monolith",
     "testFrameworks": [
       "cucumber"
     ],
     "jhiPrefix": "jhi",
-    "otherModules": [],
+    "otherModules": [
+      {
+        "name": "generator-jhipster-nav-element",
+        "version": "1.2.2"
+      },
+      {
+        "name": "generator-jhipster-docker",
+        "version": "2.2.0"
+      },
+      {
+        "name": "generator-jhipster-ci",
+        "version": "1.0.0"
+      },
+      {
+        "name": "generator-jhipster-bootstrap-material-design",
+        "version": "3.5.1"
+      },
+      {
+        "name": "generator-jhipster-swagger2markup",
+        "version": "1.2.0"
+      },
+      {
+        "name": "generator-jhipster-db-helper",
+        "version": "0.0.12"
+      },
+      {
+        "name": "generator-jhipster-swagger-cli",
+        "version": "2.0.5"
+      },
+      {
+        "name": "generator-jhipster-banner",
+        "version": "0.0.2"
+      },
+      {
+        "name": "generator-jhipster-entity-audit-and-delete",
+        "version": "2.2.2"
+      },
+      {
+        "name": "generator-jhipster-entity-audit",
+        "version": "2.4.0"
+      },
+      {
+        "name": "generator-jhipster-elasticsearch-reindexer",
+        "version": "0.3.0"
+      },
+      {
+        "name": "generator-jhipster-spring-social-connectors",
+        "version": "0.0.1"
+      },
+      {
+        "name": "generator-jhipster-google-analytics",
+        "version": "0.0.1"
+      }
+    ],
     "enableTranslation": true,
     "nativeLanguage": "en",
     "languages": [

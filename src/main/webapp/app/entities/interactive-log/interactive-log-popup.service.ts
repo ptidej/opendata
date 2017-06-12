@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { InteractiveLog } from './interactive-log.model';
 import { InteractiveLogService } from './interactive-log.service';
+
 @Injectable()
 export class InteractiveLogPopupService {
     private isOpen = false;

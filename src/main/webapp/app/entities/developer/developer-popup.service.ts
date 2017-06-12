@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { Developer } from './developer.model';
 import { DeveloperService } from './developer.service';
+
 @Injectable()
 export class DeveloperPopupService {
     private isOpen = false;

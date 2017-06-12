@@ -9,7 +9,8 @@ import org.springframework.data.jpa.repository.*;
 /**
  * Spring Data JPA repository for the Audio entity.
  */
+@SuppressWarnings("unused")
 @Repository
 public interface AudioRepository extends JpaRepository<Audio,Long> {
-
+    
 }

@@ -39,6 +39,7 @@ export class SourceCodeDialogComponent implements OnInit {
         this.softwareSystemService.query()
             .subscribe((res: ResponseWrapper) => { this.softwaresystems = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
     }
+
     clear() {
         this.activeModal.dismiss('cancel');
     }

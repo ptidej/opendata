@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { ThinkAloud } from './think-aloud.model';
 import { ThinkAloudService } from './think-aloud.service';
+
 @Injectable()
 export class ThinkAloudPopupService {
     private isOpen = false;

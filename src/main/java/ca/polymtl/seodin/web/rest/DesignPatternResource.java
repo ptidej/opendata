@@ -69,7 +69,7 @@ public class DesignPatternResource {
      * @param designPattern the designPattern to update
      * @return the ResponseEntity with status 200 (OK) and with body the updated designPattern,
      * or with status 400 (Bad Request) if the designPattern is not valid,
-     * or with status 500 (Internal Server Error) if the designPattern couldnt be updated
+     * or with status 500 (Internal Server Error) if the designPattern couldn't be updated
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PutMapping("/design-patterns")

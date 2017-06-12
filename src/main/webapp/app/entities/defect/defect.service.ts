@@ -65,16 +65,16 @@ export class DefectService {
     }
 
     private convertItemFromServer(entity: any) {
-        entity.created = this.dateUtils
-            .convertLocalDateFromServer(entity.created);
+        entity.registred = this.dateUtils
+            .convertLocalDateFromServer(entity.registred);
         entity.modified = this.dateUtils
             .convertLocalDateFromServer(entity.modified);
     }
 
     private convert(defect: Defect): Defect {
         const copy: Defect = Object.assign({}, defect);
-        copy.created = this.dateUtils
-            .convertLocalDateToServer(defect.created);
+        copy.registred = this.dateUtils
+            .convertLocalDateToServer(defect.registred);
         copy.modified = this.dateUtils
             .convertLocalDateToServer(defect.modified);
         return copy;

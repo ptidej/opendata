@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { Script } from './script.model';
 import { ScriptService } from './script.service';
+
 @Injectable()
 export class ScriptPopupService {
     private isOpen = false;

@@ -69,7 +69,7 @@ public class TestCaseResource {
      * @param testCase the testCase to update
      * @return the ResponseEntity with status 200 (OK) and with body the updated testCase,
      * or with status 400 (Bad Request) if the testCase is not valid,
-     * or with status 500 (Internal Server Error) if the testCase couldnt be updated
+     * or with status 500 (Internal Server Error) if the testCase couldn't be updated
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PutMapping("/test-cases")

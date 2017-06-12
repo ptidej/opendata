@@ -25,6 +25,12 @@
                 "script": "Script",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
+            "researcher": {
+                "main": "Chercheur",
+                "explore": "Explorer un étude",
+                "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
+            },
+            
             "account": {
                 "main": "Compte",
                 "settings": "Profil",

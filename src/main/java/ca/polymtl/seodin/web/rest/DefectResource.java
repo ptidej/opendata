@@ -69,7 +69,7 @@ public class DefectResource {
      * @param defect the defect to update
      * @return the ResponseEntity with status 200 (OK) and with body the updated defect,
      * or with status 400 (Bad Request) if the defect is not valid,
-     * or with status 500 (Internal Server Error) if the defect couldnt be updated
+     * or with status 500 (Internal Server Error) if the defect couldn't be updated
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PutMapping("/defects")

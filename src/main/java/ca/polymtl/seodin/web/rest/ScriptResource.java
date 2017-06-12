@@ -69,7 +69,7 @@ public class ScriptResource {
      * @param script the script to update
      * @return the ResponseEntity with status 200 (OK) and with body the updated script,
      * or with status 400 (Bad Request) if the script is not valid,
-     * or with status 500 (Internal Server Error) if the script couldnt be updated
+     * or with status 500 (Internal Server Error) if the script couldn't be updated
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PutMapping("/scripts")

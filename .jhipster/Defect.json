@@ -42,7 +42,7 @@
             "fieldValues": "MINOR,MAJOR,CRITICAL"
         },
         {
-            "fieldName": "created",
+            "fieldName": "registred",
             "fieldType": "LocalDate"
         },
         {

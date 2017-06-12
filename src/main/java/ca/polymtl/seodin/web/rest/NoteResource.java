@@ -69,7 +69,7 @@ public class NoteResource {
      * @param note the note to update
      * @return the ResponseEntity with status 200 (OK) and with body the updated note,
      * or with status 400 (Bad Request) if the note is not valid,
-     * or with status 500 (Internal Server Error) if the note couldnt be updated
+     * or with status 500 (Internal Server Error) if the note couldn't be updated
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PutMapping("/notes")

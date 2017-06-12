@@ -74,6 +74,7 @@ export class DiaryDialogComponent implements OnInit {
         this.developerService.query()
             .subscribe((res: ResponseWrapper) => { this.developers = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
     }
+
     clear() {
         this.activeModal.dismiss('cancel');
     }

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { Task } from './task.model';
 import { TaskService } from './task.service';
+
 @Injectable()
 export class TaskPopupService {
     private isOpen = false;

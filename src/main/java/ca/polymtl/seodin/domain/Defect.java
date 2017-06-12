@@ -57,8 +57,8 @@ public class Defect implements Serializable {
     @Column(name = "priority")
     private Priority priority;
 
-    @Column(name = "created")
-    private LocalDate created;
+    @Column(name = "registred")
+    private LocalDate registred;
 
     @Column(name = "modified")
     private LocalDate modified;
@@ -165,17 +165,17 @@ public class Defect implements Serializable {
         this.priority = priority;
     }
 
-    public LocalDate getCreated() {
-        return created;
+    public LocalDate getRegistred() {
+        return registred;
     }
 
-    public Defect created(LocalDate created) {
-        this.created = created;
+    public Defect registred(LocalDate registred) {
+        this.registred = registred;
         return this;
     }
 
-    public void setCreated(LocalDate created) {
-        this.created = created;
+    public void setRegistred(LocalDate registred) {
+        this.registred = registred;
     }
 
     public LocalDate getModified() {
@@ -235,7 +235,7 @@ public class Defect implements Serializable {
             ", resolution='" + getResolution() + "'" +
             ", severity='" + getSeverity() + "'" +
             ", priority='" + getPriority() + "'" +
-            ", created='" + getCreated() + "'" +
+            ", registred='" + getRegistred() + "'" +
             ", modified='" + getModified() + "'" +
             "}";
     }

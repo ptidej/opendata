@@ -15,20 +15,17 @@
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="seodinApp.defect.ticket" for="field_ticket">Ticket</label>
             <input type="text" class="form-control" name="ticket" id="field_ticket"
-                [(ngModel)]="defect.ticket"
-             />
+                [(ngModel)]="defect.ticket"  />
         </div>
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="seodinApp.defect.summary" for="field_summary">Summary</label>
             <input type="text" class="form-control" name="summary" id="field_summary"
-                [(ngModel)]="defect.summary"
-             />
+                [(ngModel)]="defect.summary"  />
         </div>
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="seodinApp.defect.description" for="field_description">Description</label>
             <input type="text" class="form-control" name="description" id="field_description"
-                [(ngModel)]="defect.description"
-             />
+                [(ngModel)]="defect.description"  />
         </div>
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="seodinApp.defect.status" for="field_status">Status</label>
@@ -61,12 +58,12 @@
             </select>
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="seodinApp.defect.created" for="field_created">Created</label>
+            <label class="form-control-label" jhiTranslate="seodinApp.defect.registred" for="field_registred">Registred</label>
             <div class="input-group">
-                <input id="field_created" type="text" class="form-control" name="created" ngbDatepicker  #createdDp="ngbDatepicker" [(ngModel)]="defect.created"
+                <input id="field_registred" type="text" class="form-control" name="registred" ngbDatepicker  #registredDp="ngbDatepicker" [(ngModel)]="defect.registred"
                 />
                 <span class="input-group-btn">
-                    <button type="button" class="btn btn-default" (click)="createdDp.toggle()"><i class="fa fa-calendar"></i></button>
+                    <button type="button" class="btn btn-default" (click)="registredDp.toggle()"><i class="fa fa-calendar"></i></button>
                 </span>
             </div>
         </div>

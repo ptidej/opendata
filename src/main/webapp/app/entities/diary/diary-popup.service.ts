@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { Diary } from './diary.model';
 import { DiaryService } from './diary.service';
+
 @Injectable()
 export class DiaryPopupService {
     private isOpen = false;

@@ -37,7 +37,7 @@
             <th><span jhiTranslate="seodinApp.defect.resolution">Resolution</span></th>
             <th><span jhiTranslate="seodinApp.defect.severity">Severity</span></th>
             <th><span jhiTranslate="seodinApp.defect.priority">Priority</span></th>
-            <th><span jhiTranslate="seodinApp.defect.created">Created</span></th>
+            <th><span jhiTranslate="seodinApp.defect.registred">Registred</span></th>
             <th><span jhiTranslate="seodinApp.defect.modified">Modified</span></th>
             <th><span jhiTranslate="seodinApp.defect.developer">Developer</span></th>
             <th></th>
@@ -53,7 +53,7 @@
                 <td jhiTranslate="{{'seodinApp.Resolution.' + defect.resolution}}">{{defect.resolution}}</td>
                 <td jhiTranslate="{{'seodinApp.Severity.' + defect.severity}}">{{defect.severity}}</td>
                 <td jhiTranslate="{{'seodinApp.Priority.' + defect.priority}}">{{defect.priority}}</td>
-                <td>{{defect.created | date:'mediumDate'}}</td>
+                <td>{{defect.registred | date:'mediumDate'}}</td>
                 <td>{{defect.modified | date:'mediumDate'}}</td>
                 <td>
                     <div *ngIf="defect.developer">

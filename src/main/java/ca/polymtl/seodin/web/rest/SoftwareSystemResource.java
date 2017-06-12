@@ -69,7 +69,7 @@ public class SoftwareSystemResource {
      * @param softwareSystem the softwareSystem to update
      * @return the ResponseEntity with status 200 (OK) and with body the updated softwareSystem,
      * or with status 400 (Bad Request) if the softwareSystem is not valid,
-     * or with status 500 (Internal Server Error) if the softwareSystem couldnt be updated
+     * or with status 500 (Internal Server Error) if the softwareSystem couldn't be updated
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PutMapping("/software-systems")

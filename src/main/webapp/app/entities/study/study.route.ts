@@ -36,7 +36,7 @@ export const studyPopupRoute: Routes = [
         path: 'study-new',
         component: StudyPopupComponent,
         data: {
-            authorities: ['ROLE_ADMIN'],
+            authorities: ['ROLE_USER'],
             pageTitle: 'seodinApp.study.home.title'
         },
         canActivate: [UserRouteAccessService],
@@ -46,7 +46,7 @@ export const studyPopupRoute: Routes = [
         path: 'study/:id/edit',
         component: StudyPopupComponent,
         data: {
-            authorities: ['ROLE_ADMIN'],
+            authorities: ['ROLE_USER'],
             pageTitle: 'seodinApp.study.home.title'
         },
         canActivate: [UserRouteAccessService],
@@ -56,7 +56,7 @@ export const studyPopupRoute: Routes = [
         path: 'study/:id/delete',
         component: StudyDeletePopupComponent,
         data: {
-            authorities: ['ROLE_ADMIN'],
+            authorities: ['ROLE_USER'],
             pageTitle: 'seodinApp.study.home.title'
         },
         canActivate: [UserRouteAccessService],

@@ -39,6 +39,7 @@ export class DesignPatternDialogComponent implements OnInit {
         this.sourceCodeService.query()
             .subscribe((res: ResponseWrapper) => { this.sourcecodes = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
     }
+
     clear() {
         this.activeModal.dismiss('cancel');
     }

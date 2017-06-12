@@ -31,12 +31,12 @@ module.exports = {
         exprContextCritical: false,
         rules: [
             {
-                test: /(vendor\.css|global\.css)/,
-                loaders: ['style-loader', 'css-loader']
+                test: /(vendor\.scss|global\.scss)/,
+                loaders: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader']
             },
             {
                 test: /\.(jpe?g|png|gif|svg|woff2?|ttf|eot)$/i,
-                loaders: ['file-loader?hash=sha512&digest=hex&name=[hash].[ext]']
+                loaders: ['file-loader?hash=sha512&digest=hex&name=content/[hash].[ext]']
             }
         ]
     },

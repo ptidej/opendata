@@ -23,7 +23,7 @@
             "resolution": "Resolution",
             "severity": "Severity",
             "priority": "Priority",
-            "created": "Created",
+            "registred": "Registred",
             "modified": "Modified",
             "developer": "Developer"
         }

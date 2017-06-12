@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { Defect } from './defect.model';
 import { DefectService } from './defect.service';
+
 @Injectable()
 export class DefectPopupService {
     private isOpen = false;
@@ -21,11 +22,11 @@ export class DefectPopupService {
 
         if (id) {
             this.defectService.find(id).subscribe((defect) => {
-                if (defect.created) {
-                    defect.created = {
-                        year: defect.created.getFullYear(),
-                        month: defect.created.getMonth() + 1,
-                        day: defect.created.getDate()
+                if (defect.registred) {
+                    defect.registred = {
+                        year: defect.registred.getFullYear(),
+                        month: defect.registred.getMonth() + 1,
+                        day: defect.registred.getDate()
                     };
                 }
                 if (defect.modified) {

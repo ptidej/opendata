@@ -50,7 +50,7 @@
                 <constraints nullable="true" />
             </column>
 
-            <column name="created" type="date">
+            <column name="registred" type="date">
                 <constraints nullable="true" />
             </column>
 

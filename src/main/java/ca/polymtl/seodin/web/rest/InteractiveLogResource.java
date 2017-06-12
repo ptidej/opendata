@@ -69,7 +69,7 @@ public class InteractiveLogResource {
      * @param interactiveLog the interactiveLog to update
      * @return the ResponseEntity with status 200 (OK) and with body the updated interactiveLog,
      * or with status 400 (Bad Request) if the interactiveLog is not valid,
-     * or with status 500 (Internal Server Error) if the interactiveLog couldnt be updated
+     * or with status 500 (Internal Server Error) if the interactiveLog couldn't be updated
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PutMapping("/interactive-logs")

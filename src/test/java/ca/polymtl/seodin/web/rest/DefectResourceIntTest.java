@@ -65,8 +65,8 @@ public class DefectResourceIntTest {
     private static final Priority DEFAULT_PRIORITY = Priority.MINOR;
     private static final Priority UPDATED_PRIORITY = Priority.MAJOR;
 
-    private static final LocalDate DEFAULT_CREATED = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_CREATED = LocalDate.now(ZoneId.systemDefault());
+    private static final LocalDate DEFAULT_REGISTRED = LocalDate.ofEpochDay(0L);
+    private static final LocalDate UPDATED_REGISTRED = LocalDate.now(ZoneId.systemDefault());
 
     private static final LocalDate DEFAULT_MODIFIED = LocalDate.ofEpochDay(0L);
     private static final LocalDate UPDATED_MODIFIED = LocalDate.now(ZoneId.systemDefault());
@@ -118,7 +118,7 @@ public class DefectResourceIntTest {
             .resolution(DEFAULT_RESOLUTION)
             .severity(DEFAULT_SEVERITY)
             .priority(DEFAULT_PRIORITY)
-            .created(DEFAULT_CREATED)
+            .registred(DEFAULT_REGISTRED)
             .modified(DEFAULT_MODIFIED);
         return defect;
     }
@@ -151,7 +151,7 @@ public class DefectResourceIntTest {
         assertThat(testDefect.getResolution()).isEqualTo(DEFAULT_RESOLUTION);
         assertThat(testDefect.getSeverity()).isEqualTo(DEFAULT_SEVERITY);
         assertThat(testDefect.getPriority()).isEqualTo(DEFAULT_PRIORITY);
-        assertThat(testDefect.getCreated()).isEqualTo(DEFAULT_CREATED);
+        assertThat(testDefect.getRegistred()).isEqualTo(DEFAULT_REGISTRED);
         assertThat(testDefect.getModified()).isEqualTo(DEFAULT_MODIFIED);
 
         // Validate the Defect in Elasticsearch
@@ -196,7 +196,7 @@ public class DefectResourceIntTest {
             .andExpect(jsonPath("$.[*].resolution").value(hasItem(DEFAULT_RESOLUTION.toString())))
             .andExpect(jsonPath("$.[*].severity").value(hasItem(DEFAULT_SEVERITY.toString())))
             .andExpect(jsonPath("$.[*].priority").value(hasItem(DEFAULT_PRIORITY.toString())))
-            .andExpect(jsonPath("$.[*].created").value(hasItem(DEFAULT_CREATED.toString())))
+            .andExpect(jsonPath("$.[*].registred").value(hasItem(DEFAULT_REGISTRED.toString())))
             .andExpect(jsonPath("$.[*].modified").value(hasItem(DEFAULT_MODIFIED.toString())));
     }
 
@@ -218,7 +218,7 @@ public class DefectResourceIntTest {
             .andExpect(jsonPath("$.resolution").value(DEFAULT_RESOLUTION.toString()))
             .andExpect(jsonPath("$.severity").value(DEFAULT_SEVERITY.toString()))
             .andExpect(jsonPath("$.priority").value(DEFAULT_PRIORITY.toString()))
-            .andExpect(jsonPath("$.created").value(DEFAULT_CREATED.toString()))
+            .andExpect(jsonPath("$.registred").value(DEFAULT_REGISTRED.toString()))
             .andExpect(jsonPath("$.modified").value(DEFAULT_MODIFIED.toString()));
     }
 
@@ -248,7 +248,7 @@ public class DefectResourceIntTest {
             .resolution(UPDATED_RESOLUTION)
             .severity(UPDATED_SEVERITY)
             .priority(UPDATED_PRIORITY)
-            .created(UPDATED_CREATED)
+            .registred(UPDATED_REGISTRED)
             .modified(UPDATED_MODIFIED);
 
         restDefectMockMvc.perform(put("/api/defects")
@@ -267,7 +267,7 @@ public class DefectResourceIntTest {
         assertThat(testDefect.getResolution()).isEqualTo(UPDATED_RESOLUTION);
         assertThat(testDefect.getSeverity()).isEqualTo(UPDATED_SEVERITY);
         assertThat(testDefect.getPriority()).isEqualTo(UPDATED_PRIORITY);
-        assertThat(testDefect.getCreated()).isEqualTo(UPDATED_CREATED);
+        assertThat(testDefect.getRegistred()).isEqualTo(UPDATED_REGISTRED);
         assertThat(testDefect.getModified()).isEqualTo(UPDATED_MODIFIED);
 
         // Validate the Defect in Elasticsearch
@@ -334,7 +334,7 @@ public class DefectResourceIntTest {
             .andExpect(jsonPath("$.[*].resolution").value(hasItem(DEFAULT_RESOLUTION.toString())))
             .andExpect(jsonPath("$.[*].severity").value(hasItem(DEFAULT_SEVERITY.toString())))
             .andExpect(jsonPath("$.[*].priority").value(hasItem(DEFAULT_PRIORITY.toString())))
-            .andExpect(jsonPath("$.[*].created").value(hasItem(DEFAULT_CREATED.toString())))
+            .andExpect(jsonPath("$.[*].registred").value(hasItem(DEFAULT_REGISTRED.toString())))
             .andExpect(jsonPath("$.[*].modified").value(hasItem(DEFAULT_MODIFIED.toString())));
     }
 

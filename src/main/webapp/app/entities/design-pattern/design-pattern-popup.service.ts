@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { DesignPattern } from './design-pattern.model';
 import { DesignPatternService } from './design-pattern.service';
+
 @Injectable()
 export class DesignPatternPopupService {
     private isOpen = false;

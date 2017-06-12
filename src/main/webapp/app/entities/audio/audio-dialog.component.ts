@@ -39,6 +39,7 @@ export class AudioDialogComponent implements OnInit {
         this.interviewService.query()
             .subscribe((res: ResponseWrapper) => { this.interviews = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
     }
+
     clear() {
         this.activeModal.dismiss('cancel');
     }

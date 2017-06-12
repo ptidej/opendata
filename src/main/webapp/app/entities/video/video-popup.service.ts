@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { Video } from './video.model';
 import { VideoService } from './video.service';
+
 @Injectable()
 export class VideoPopupService {
     private isOpen = false;

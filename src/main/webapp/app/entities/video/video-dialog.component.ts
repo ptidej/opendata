@@ -45,6 +45,7 @@ export class VideoDialogComponent implements OnInit {
         this.thinkAloudService.query()
             .subscribe((res: ResponseWrapper) => { this.thinkalouds = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
     }
+
     clear() {
         this.activeModal.dismiss('cancel');
     }

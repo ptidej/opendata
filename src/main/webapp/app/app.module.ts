@@ -9,6 +9,7 @@ import { SeodinHomeModule } from './home/home.module';
 import { SeodinAdminModule } from './admin/admin.module';
 import { SeodinAccountModule } from './account/account.module';
 import { SeodinEntityModule } from './entities/entity.module';
+import { SeodinResearcherModule } from './researcher/researcher.module';
 
 import { customHttpProvider } from './blocks/interceptor/http.provider';
 import { PaginationConfig } from './blocks/config/uib-pagination.config';

@@ -1,0 +1,155 @@
+entity Study {
+	title String required
+    description String
+    author String
+}
+
+entity SoftwareSystem {
+	tag String
+}
+
+entity Task {
+	tag String
+}
+
+entity Developer {
+	name String required
+}
+
+entity Interview {
+	tag String
+    description String
+    registred LocalDate
+}
+
+entity ThinkAloud {
+	tag String
+    description String
+    registred LocalDate
+}
+
+entity Diary {
+	uri String
+    registred LocalDate
+    status ArtifactStatus
+}
+
+
+entity Audio {
+	tag String
+    description String
+    duration Integer
+    uri String
+    status ArtifactStatus
+}
+
+entity Video {
+	tag String
+    description String
+    duration Integer
+    uri String
+    status ArtifactStatus
+}
+
+entity Note {
+	tag String
+    description String
+    uri String
+    status ArtifactStatus
+}
+
+entity Defect {
+	ticket String
+    summary String
+    description String
+    status DefectStatus
+    resolution Resolution
+    severity Severity
+    priority Priority
+    registred LocalDate
+    modified LocalDate
+    status ArtifactStatus
+}
+
+entity TestCase {
+	tag String
+	uri String
+    status ArtifactStatus
+}
+
+entity InteractiveLog {
+	kind LogKind
+    sourceHandle String
+    origin String
+    delta String
+	registred LocalDate
+    status ArtifactStatus
+}
+
+entity SourceCode {
+	tag String
+	uri String
+    status ArtifactStatus
+}
+
+entity DesignPattern {
+	tag String
+    xmlDescriptor String
+    status ArtifactStatus
+}
+
+entity Script {
+	tag String
+    description String
+    sourceCode String
+    status ArtifactStatus
+}
+
+relationship OneToMany {
+	Study to Developer{study(title)},
+    Study to SoftwareSystem{study(tag)},
+    Study to SoftwareSystem{study(tag)},
+    SoftwareSystem to SourceCode{softwareSystem(tag)},
+    SourceCode to DesignPattern{SourceCode(tag)},
+    Developer to Interview{developer(name)},
+    Developer to Diary{developer(name)},
+    Developer to ThinkAloud{developer(name)},
+    Developer to Defect{developer(name)},
+    Developer to TestCase{developer(name)},
+    Developer to InteractiveLog{developer(name)},
+    Interview to Audio{interview(tag)},
+    Interview to Video{interview(tag)},
+    Interview to Note{interview(tag)},
+    ThinkAloud to Note{thinkaloud(tag)},
+    ThinkAloud to Video{thinkaloud(tag)}
+}
+relationship OneToOne {
+	Diary{task(tag)} to Task,
+	Diary{softwareSystem(tag)} to SoftwareSystem,
+    TestCase{softwareSystem(tag)} to SoftwareSystem,
+    ThinkAloud{softwareSystem(tag)} to SoftwareSystem
+}
+
+enum LogKind {
+    SELECTION, COMMAND, PREFERENCE
+}
+
+enum DefectStatus {
+    CLOSED, NEW
+}
+
+enum Priority {
+    MINOR, MAJOR, CRITICAL
+}
+
+enum Severity {
+    NONE
+}
+
+enum Resolution {
+    NONE, FIXED, WONTFIX
+}
+
+enum ArtifactStatus {
+    PRIVATE, SUBMITED, PUBLISHED
+}

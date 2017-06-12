@@ -3,16 +3,16 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs/Rx';
 import { EventManager, ParseLinks, PaginationUtil, JhiLanguageService, AlertService } from 'ng-jhipster';
 
-import { Study } from './study.model';
-import { StudyService } from './study.service';
+import { Study } from '../../entities/study/study.model';
+import { StudyService } from '../../entities/study/study.service';
 import { ITEMS_PER_PAGE, Principal, ResponseWrapper } from '../../shared';
 import { PaginationConfig } from '../../blocks/config/uib-pagination.config';
 
 @Component({
-    selector: 'jhi-study',
-    templateUrl: './study.component.html'
+    selector: 'jhi-explore',
+    templateUrl: './explore.component.html'
 })
-export class StudyComponent implements OnInit, OnDestroy {
+export class ExploreComponent implements OnInit, OnDestroy {
 studies: Study[];
     currentAccount: any;
     eventSubscriber: Subscription;

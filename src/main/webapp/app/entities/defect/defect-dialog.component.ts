@@ -23,7 +23,7 @@ export class DefectDialogComponent implements OnInit {
     isSaving: boolean;
 
     developers: Developer[];
-    createdDp: any;
+    registredDp: any;
     modifiedDp: any;
 
     constructor(
@@ -41,6 +41,7 @@ export class DefectDialogComponent implements OnInit {
         this.developerService.query()
             .subscribe((res: ResponseWrapper) => { this.developers = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
     }
+
     clear() {
         this.activeModal.dismiss('cancel');
     }

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { Interview } from './interview.model';
 import { InterviewService } from './interview.service';
+
 @Injectable()
 export class InterviewPopupService {
     private isOpen = false;
