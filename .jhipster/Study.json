@@ -1,0 +1,39 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "developer",
+            "otherEntityName": "developer",
+            "otherEntityRelationshipName": "study"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "softwareSystem",
+            "otherEntityName": "softwareSystem",
+            "otherEntityRelationshipName": "study"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "title",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "author",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170602231932",
+    "entityTableName": "study",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

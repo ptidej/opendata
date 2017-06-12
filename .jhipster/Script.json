@@ -1,0 +1,28 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "tag",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "sourceCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "ArtifactStatus",
+            "fieldValues": "PRIVATE,SUBMITED,PUBLISHED"
+        }
+    ],
+    "changelogDate": "20170602231947",
+    "entityTableName": "script",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

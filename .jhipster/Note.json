@@ -1,0 +1,41 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "interview",
+            "otherEntityName": "interview",
+            "otherEntityField": "tag"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "thinkaloud",
+            "otherEntityName": "thinkAloud",
+            "otherEntityField": "tag"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "tag",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "uri",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "ArtifactStatus",
+            "fieldValues": "PRIVATE,SUBMITED,PUBLISHED"
+        }
+    ],
+    "changelogDate": "20170602231941",
+    "entityTableName": "note",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

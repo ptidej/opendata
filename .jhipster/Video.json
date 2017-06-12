@@ -1,0 +1,45 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "interview",
+            "otherEntityName": "interview",
+            "otherEntityField": "tag"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "thinkaloud",
+            "otherEntityName": "thinkAloud",
+            "otherEntityField": "tag"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "tag",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "duration",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "uri",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "ArtifactStatus",
+            "fieldValues": "PRIVATE,SUBMITED,PUBLISHED"
+        }
+    ],
+    "changelogDate": "20170602231940",
+    "entityTableName": "video",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

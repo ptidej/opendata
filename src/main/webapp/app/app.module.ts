@@ -33,7 +33,8 @@ import {
         SeodinHomeModule,
         SeodinAdminModule,
         SeodinAccountModule,
-        SeodinEntityModule
+        SeodinEntityModule,
+        SeodinResearcherModule
     ],
     declarations: [
         JhiMainComponent,

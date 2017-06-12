@@ -7,7 +7,6 @@ import { PaginationUtil } from 'ng-jhipster';
 import { StudyComponent } from './study.component';
 import { StudyDetailComponent } from './study-detail.component';
 import { StudyPopupComponent } from './study-dialog.component';
-import { StudyDeletePopupComponent } from './study-delete-dialog.component';
 
 import { Principal } from '../../shared';
 
@@ -52,14 +51,4 @@ export const studyPopupRoute: Routes = [
         canActivate: [UserRouteAccessService],
         outlet: 'popup'
     },
-    {
-        path: 'study/:id/delete',
-        component: StudyDeletePopupComponent,
-        data: {
-            authorities: ['ROLE_ADMIN'],
-            pageTitle: 'seodinApp.study.home.title'
-        },
-        canActivate: [UserRouteAccessService],
-        outlet: 'popup'
-    }
 ];

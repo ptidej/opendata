@@ -1,0 +1,31 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "sourceCode",
+            "otherEntityName": "sourceCode",
+            "otherEntityField": "tag"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "tag",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "xmlDescriptor",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "ArtifactStatus",
+            "fieldValues": "PRIVATE,SUBMITED,PUBLISHED"
+        }
+    ],
+    "changelogDate": "20170602231946",
+    "entityTableName": "design_pattern",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

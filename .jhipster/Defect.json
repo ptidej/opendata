@@ -1,0 +1,58 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "developer",
+            "otherEntityName": "developer",
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "ticket",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "summary",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "ArtifactStatus",
+            "fieldValues": "PRIVATE,SUBMITED,PUBLISHED"
+        },
+        {
+            "fieldName": "resolution",
+            "fieldType": "Resolution",
+            "fieldValues": "NONE,FIXED,WONTFIX"
+        },
+        {
+            "fieldName": "severity",
+            "fieldType": "Severity",
+            "fieldValues": "NONE"
+        },
+        {
+            "fieldName": "priority",
+            "fieldType": "Priority",
+            "fieldValues": "MINOR,MAJOR,CRITICAL"
+        },
+        {
+            "fieldName": "created",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "modified",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "changelogDate": "20170602231942",
+    "entityTableName": "defect",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

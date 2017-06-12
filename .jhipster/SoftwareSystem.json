@@ -1,0 +1,28 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "sourceCode",
+            "otherEntityName": "sourceCode",
+            "otherEntityRelationshipName": "softwareSystem"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "study",
+            "otherEntityName": "study",
+            "otherEntityField": "tag"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "tag",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170602231933",
+    "entityTableName": "software_system",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

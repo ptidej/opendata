@@ -1,0 +1,37 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "designPattern",
+            "otherEntityName": "designPattern",
+            "otherEntityRelationshipName": "sourceCode"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "softwareSystem",
+            "otherEntityName": "softwareSystem",
+            "otherEntityField": "tag"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "tag",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "uri",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "ArtifactStatus",
+            "fieldValues": "PRIVATE,SUBMITED,PUBLISHED"
+        }
+    ],
+    "changelogDate": "20170602231945",
+    "entityTableName": "source_code",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

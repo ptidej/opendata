@@ -1,0 +1,47 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "task",
+            "otherEntityName": "task",
+            "otherEntityField": "tag",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "diary"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "softwareSystem",
+            "otherEntityName": "softwareSystem",
+            "otherEntityField": "tag",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "diary"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "developer",
+            "otherEntityName": "developer",
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "uri",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "registred",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "ArtifactStatus",
+            "fieldValues": "PRIVATE,SUBMITED,PUBLISHED"
+        }
+    ],
+    "changelogDate": "20170602231938",
+    "entityTableName": "diary",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}
