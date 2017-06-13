@@ -1,15 +1,15 @@
 {
     "home": {
-        "title": "Welcome, Java Hipster!",
-        "subtitle": "This is your homepage",
+        "title": "Welcome to Seodin",
+        "subtitle": "Click the links below to access data",
         "logged": {
             "message": "You are logged in as user \"{{username}}\"."
         },
         "question": "If you have any question on JHipster:",
         "link": {
-            "homepage": "JHipster homepage",
-            "stackoverflow": "JHipster on Stack Overflow",
-            "bugtracker": "JHipster bug tracker",
+            "homepage": "Search by study",
+            "stackoverflow": "Download a study dataset",
+            "bugtracker": "Find a video online",
             "chat": "JHipster public chat room",
             "follow": "follow @java_hipster on Twitter"
         },
