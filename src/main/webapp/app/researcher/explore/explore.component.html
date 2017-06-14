@@ -32,14 +32,13 @@
             </thead>
             <tbody>
             <tr *ngFor="let study of studies ;trackBy: trackId">
-                <td><a [routerLink]="['../study', study.id ]">{{study.id}}</a></td>
-                <td>{{study.title}}</td>
+                <td><a [routerLink]="['../study-full', study.id ]">{{study.title}}</a></td>
                 <td>{{study.description}}</td>
                 <td>{{study.author}}</td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"
-                                [routerLink]="['../study', study.id ]"
+                                [routerLink]="['../study-full', study.id ]"
                                 class="btn btn-info btn-sm">
                             <span class="fa fa-eye"></span>
                             <span class="hidden-md-down" jhiTranslate="entity.action.view">View</span>

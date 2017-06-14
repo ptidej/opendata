@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { SeodinSharedModule } from '../../shared';
 import {
     ExploreComponent,
+    StudyFullComponent,
     exploreRoute
 } from './';
 
@@ -18,9 +19,11 @@ const ENTITY_STATES = [
     ],
     declarations: [
         ExploreComponent,
+        StudyFullComponent,
     ],
     entryComponents: [
         ExploreComponent,
+        StudyFullComponent,
     ],
     providers: [
 
