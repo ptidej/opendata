@@ -24,11 +24,6 @@
                 "designPattern": "Design Pattern",
                 "script": "Script",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
-            },            
-            "researcher": {
-                "main": "Researcher",
-                "explore": "Explore a study",
-                "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {
                 "main": "Account",
@@ -149,5 +144,5 @@
         "emailexists": "Email is already in use!",
         "idexists": "A new {{ entityName }} cannot already have an ID"
     },
-    "footer": "This is your footer"
+    "footer": "Developped by the Ptidej team"
 }
