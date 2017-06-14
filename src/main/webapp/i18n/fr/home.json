@@ -1,7 +1,7 @@
 {
     "home": {
         "title": "Bienvenue sur Seodin",
-        "subtitle": "Cliquer sur les liens ci-dessous pour accéder à l'information",
+        "subtitle": "L'infrastructure de données ouvertes pour la Génie Logiciel",
         "logged": {
             "message": "Vous êtes connecté en tant que \"{{username}}\"."
         },

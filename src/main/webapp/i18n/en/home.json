@@ -1,7 +1,7 @@
 {
     "home": {
         "title": "Welcome to Seodin",
-        "subtitle": "Click the links below to access data",
+        "subtitle": "The Software Engineering Open Data Infrastructure",
         "logged": {
             "message": "You are logged in as user \"{{username}}\"."
         },

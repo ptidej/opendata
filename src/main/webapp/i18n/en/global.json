@@ -24,6 +24,11 @@
                 "designPattern": "Design Pattern",
                 "script": "Script",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
+            },            
+            "researcher": {
+                "main": "Researcher",
+                "explore": "Explore a study",
+                "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {
                 "main": "Account",
