@@ -19,18 +19,15 @@ entity Developer {
 entity Interview {
 	tag String
     description String
-    registred LocalDate
 }
 
 entity ThinkAloud {
 	tag String
     description String
-    registred LocalDate
 }
 
 entity Diary {
 	uri String
-    registred LocalDate
     status ArtifactStatus
 }
 
@@ -41,6 +38,7 @@ entity Audio {
     duration Integer
     uri String
     status ArtifactStatus
+    recorded LocalDate
 }
 
 entity Video {
@@ -49,6 +47,7 @@ entity Video {
     duration Integer
     uri String
     status ArtifactStatus
+    recorded LocalDate
 }
 
 entity Note {
@@ -66,7 +65,7 @@ entity Defect {
     resolution Resolution
     severity Severity
     priority Priority
-    registred LocalDate
+    recorded LocalDate
     modified LocalDate
     status ArtifactStatus
 }
@@ -82,7 +81,7 @@ entity InteractiveLog {
     sourceHandle String
     origin String
     delta String
-	registred LocalDate
+    recorded LocalDate
     status ArtifactStatus
 }
 
@@ -107,7 +106,6 @@ entity Script {
 
 relationship OneToMany {
 	Study to Developer{study(title)},
-    Study to SoftwareSystem{study(tag)},
     Study to SoftwareSystem{study(tag)},
     SoftwareSystem to SourceCode{softwareSystem(tag)},
     SourceCode to DesignPattern{SourceCode(tag)},
