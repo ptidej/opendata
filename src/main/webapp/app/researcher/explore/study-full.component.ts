@@ -17,6 +17,15 @@ import { SoftwareSystemService } from '../../entities/software-system/software-s
 import { Interview } from '../../entities/interview/interview.model';
 import { InterviewService } from '../../entities/interview/interview.service';
 
+import { ThinkAloud } from '../../entities/think-aloud/think-aloud.model';
+import { ThinkAloudService } from '../../entities/think-aloud/think-aloud.service';
+
+import { Video } from '../../entities/video/video.model';
+import { VideoService } from '../../entities/video/video.service';
+
+import { Audio } from '../../entities/audio/audio.model';
+import { AudioService } from '../../entities/audio/audio.service';
+
 @Component({
     selector: 'jhi-study-full',
     templateUrl: './study-full.component.html'
@@ -26,7 +35,11 @@ export class StudyFullComponent implements OnInit, OnDestroy {
     study: Study;
     developers: Developer[];
     softwareSystems: SoftwareSystem[];
+    thinkAlouds: ThinkAloud[];
+    videos: Video[];
     interviews: Interview[];
+    audios: Audio[];
+
     private subscription: Subscription;
     private eventSubscriber: Subscription;
 
@@ -36,6 +49,9 @@ export class StudyFullComponent implements OnInit, OnDestroy {
         private developerService: DeveloperService,
         private softwareSystemService: SoftwareSystemService,
         private interviewService: InterviewService,
+        private thinkAloudService: ThinkAloudService,
+        private videoService: VideoService,
+        private audioService: AudioService,
         private alertService: AlertService,
         private route: ActivatedRoute
     ) {
@@ -56,6 +72,9 @@ export class StudyFullComponent implements OnInit, OnDestroy {
         this.loadDevelopers(id);
         this.loadSoftwareSystems(id);
         this.loadInterviews(id);
+        this.loadThinkAlouds(id);
+        this.loadVideos(id);
+        this.loadAudios(id);
     }
 
     loadDevelopers(id) {
@@ -80,6 +99,33 @@ export class StudyFullComponent implements OnInit, OnDestroy {
       this.interviewService.query().subscribe(
             (res: ResponseWrapper) => {
                 this.interviews = res.json;
+            },
+            (res: ResponseWrapper) => this.onError(res.json)
+        );
+    }
+
+    loadThinkAlouds(id) {
+      this.thinkAloudService.query().subscribe(
+            (res: ResponseWrapper) => {
+                this.thinkAlouds = res.json;
+            },
+            (res: ResponseWrapper) => this.onError(res.json)
+        );
+    }
+
+    loadVideos(id) {
+      this.videoService.query().subscribe(
+            (res: ResponseWrapper) => {
+                this.videos = res.json;
+            },
+            (res: ResponseWrapper) => this.onError(res.json)
+        );
+    }
+
+    loadAudios(id) {
+      this.audioService.query().subscribe(
+            (res: ResponseWrapper) => {
+                this.audios = res.json;
             },
             (res: ResponseWrapper) => this.onError(res.json)
         );
