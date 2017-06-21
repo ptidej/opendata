@@ -106,8 +106,9 @@ entity Script {
 
 relationship OneToMany {
 	Study to Developer{study(title)},
-    Study to SoftwareSystem{study(tag)},
-    Study to Script{study(tag)},
+    Study to SoftwareSystem{study(title)},
+    Study to Script{study(title)},
+    Study to Task{study(title)},
     SoftwareSystem to SourceCode{softwareSystem(tag)},
     SourceCode to DesignPattern{SourceCode(tag)},
     Developer to Interview{developer(name)},
