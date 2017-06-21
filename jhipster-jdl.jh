@@ -60,7 +60,7 @@ entity Note {
 entity Defect {
 	ticket String
     summary String
-    description String
+    description Text
     status DefectStatus
     resolution Resolution
     severity Severity
@@ -139,7 +139,7 @@ enum DefectStatus {
 }
 
 enum Priority {
-    MINOR, MAJOR, CRITICAL
+    MINOR, MAJOR, CRITICAL, BLOCKER
 }
 
 enum Severity {
@@ -147,7 +147,7 @@ enum Severity {
 }
 
 enum Resolution {
-    NONE, FIXED, WONTFIX
+    NONE, FIXED, WONTFIX, INVALID
 }
 
 enum ArtifactStatus {
