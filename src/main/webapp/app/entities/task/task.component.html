@@ -31,6 +31,7 @@
             <tr>
             <th><span jhiTranslate="global.field.id">ID</span></th>
             <th><span jhiTranslate="seodinApp.task.tag">Tag</span></th>
+            <th><span jhiTranslate="seodinApp.task.study">Study</span></th>
             <th></th>
             </tr>
             </thead>
@@ -38,6 +39,11 @@
             <tr *ngFor="let task of tasks ;trackBy: trackId">
                 <td><a [routerLink]="['../task', task.id ]">{{task.id}}</a></td>
                 <td>{{task.tag}}</td>
+                <td>
+                    <div *ngIf="task.study">
+                        <a [routerLink]="['../study', task.study?.id ]" >{{task.study?.title}}</a>
+                    </div>
+                </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

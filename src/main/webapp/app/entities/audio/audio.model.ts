@@ -14,6 +14,7 @@ export class Audio {
         public duration?: number,
         public uri?: string,
         public status?: ArtifactStatus,
+        public recorded?: any,
         public interview?: Interview,
     ) {
     }

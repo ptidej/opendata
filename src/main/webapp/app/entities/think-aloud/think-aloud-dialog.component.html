@@ -22,20 +22,10 @@
             <input type="text" class="form-control" name="description" id="field_description"
                 [(ngModel)]="thinkAloud.description"  />
         </div>
-        <div class="form-group">
-            <label class="form-control-label" jhiTranslate="seodinApp.thinkAloud.registred" for="field_registred">Registred</label>
-            <div class="input-group">
-                <input id="field_registred" type="text" class="form-control" name="registred" ngbDatepicker  #registredDp="ngbDatepicker" [(ngModel)]="thinkAloud.registred"
-                />
-                <span class="input-group-btn">
-                    <button type="button" class="btn btn-default" (click)="registredDp.toggle()"><i class="fa fa-calendar"></i></button>
-                </span>
-            </div>
-        </div>
 
         <div class="form-group">
             <label jhiTranslate="seodinApp.thinkAloud.softwareSystem" for="field_softwareSystem">Software System</label>
-            <select class="form-control" id="field_softwareSystem" name="softwareSystem" [(ngModel)]="thinkAloud.softwareSystem">
+            <select class="form-control" id="field_softwareSystem" name="softwareSystem" [(ngModel)]="thinkAloud.softwareSystem" >
                 <option [ngValue]="null"></option>
                 <option [ngValue]="softwareSystemOption.id === thinkAloud.softwareSystem?.id ? thinkAloud.softwareSystem : softwareSystemOption" *ngFor="let softwareSystemOption of softwaresystems; trackBy: trackSoftwareSystemById">{{softwareSystemOption.tag}}</option>
             </select>

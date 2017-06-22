@@ -40,6 +40,16 @@
                 <option value="PUBLISHED" jhiTranslate="seodinApp.ArtifactStatus.PUBLISHED">PUBLISHED</option>
             </select>
         </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="seodinApp.video.recorded" for="field_recorded">Recorded</label>
+            <div class="input-group">
+                <input id="field_recorded" type="text" class="form-control" name="recorded" ngbDatepicker  #recordedDp="ngbDatepicker" [(ngModel)]="video.recorded"
+                />
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" (click)="recordedDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
 
         <div class="form-group">
             <label jhiTranslate="seodinApp.video.interview" for="field_interview">Interview</label>

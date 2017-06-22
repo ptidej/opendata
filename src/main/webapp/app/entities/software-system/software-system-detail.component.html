@@ -11,7 +11,7 @@
         <dt><span jhiTranslate="seodinApp.softwareSystem.study">Study</span></dt>
         <dd>
             <div *ngIf="softwareSystem.study">
-                <a [routerLink]="['/study', softwareSystem.study?.id]">{{softwareSystem.study?.tag}}</a>
+                <a [routerLink]="['/study', softwareSystem.study?.id]">{{softwareSystem.study?.title}}</a>
             </div>
         </dd>
     </dl>

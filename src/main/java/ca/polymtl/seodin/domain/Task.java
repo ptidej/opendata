@@ -1,11 +1,14 @@
 package ca.polymtl.seodin.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.springframework.data.elasticsearch.annotations.Document;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -26,6 +29,14 @@ public class Task implements Serializable {
     @Column(name = "tag")
     private String tag;
 
+    @OneToMany(mappedBy = "task")
+    @JsonIgnore
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<Diary> diaries = new HashSet<>();
+
+    @ManyToOne
+    private Study study;
+
     public Long getId() {
         return id;
     }
@@ -45,6 +56,44 @@ public class Task implements Serializable {
 
     public void setTag(String tag) {
         this.tag = tag;
+    }
+
+    public Set<Diary> getDiaries() {
+        return diaries;
+    }
+
+    public Task diaries(Set<Diary> diaries) {
+        this.diaries = diaries;
+        return this;
+    }
+
+    public Task addDiary(Diary diary) {
+        this.diaries.add(diary);
+        diary.setTask(this);
+        return this;
+    }
+
+    public Task removeDiary(Diary diary) {
+        this.diaries.remove(diary);
+        diary.setTask(null);
+        return this;
+    }
+
+    public void setDiaries(Set<Diary> diaries) {
+        this.diaries = diaries;
+    }
+
+    public Study getStudy() {
+        return study;
+    }
+
+    public Task study(Study study) {
+        this.study = study;
+        return this;
+    }
+
+    public void setStudy(Study study) {
+        this.study = study;
     }
 
     @Override

@@ -9,6 +9,8 @@ import { EventManager, AlertService } from 'ng-jhipster';
 import { Task } from './task.model';
 import { TaskPopupService } from './task-popup.service';
 import { TaskService } from './task.service';
+import { Study, StudyService } from '../study';
+import { ResponseWrapper } from '../../shared';
 
 @Component({
     selector: 'jhi-task-dialog',
@@ -20,10 +22,13 @@ export class TaskDialogComponent implements OnInit {
     authorities: any[];
     isSaving: boolean;
 
+    studies: Study[];
+
     constructor(
         public activeModal: NgbActiveModal,
         private alertService: AlertService,
         private taskService: TaskService,
+        private studyService: StudyService,
         private eventManager: EventManager
     ) {
     }
@@ -31,6 +36,8 @@ export class TaskDialogComponent implements OnInit {
     ngOnInit() {
         this.isSaving = false;
         this.authorities = ['ROLE_USER', 'ROLE_ADMIN'];
+        this.studyService.query()
+            .subscribe((res: ResponseWrapper) => { this.studies = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
     }
 
     clear() {
@@ -76,6 +83,10 @@ export class TaskDialogComponent implements OnInit {
 
     private onError(error) {
         this.alertService.error(error.message, null, null);
+    }
+
+    trackStudyById(index: number, item: Study) {
+        return item.id;
     }
 }
 

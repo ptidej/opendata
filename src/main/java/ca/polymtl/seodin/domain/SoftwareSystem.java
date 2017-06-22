@@ -34,6 +34,21 @@ public class SoftwareSystem implements Serializable {
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<SourceCode> sourceCodes = new HashSet<>();
 
+    @OneToMany(mappedBy = "softwareSystem")
+    @JsonIgnore
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<Diary> diaries = new HashSet<>();
+
+    @OneToMany(mappedBy = "softwareSystem")
+    @JsonIgnore
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<TestCase> testCases = new HashSet<>();
+
+    @OneToMany(mappedBy = "softwareSystem")
+    @JsonIgnore
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<ThinkAloud> thinkAlouds = new HashSet<>();
+
     @ManyToOne
     private Study study;
 
@@ -81,6 +96,81 @@ public class SoftwareSystem implements Serializable {
 
     public void setSourceCodes(Set<SourceCode> sourceCodes) {
         this.sourceCodes = sourceCodes;
+    }
+
+    public Set<Diary> getDiaries() {
+        return diaries;
+    }
+
+    public SoftwareSystem diaries(Set<Diary> diaries) {
+        this.diaries = diaries;
+        return this;
+    }
+
+    public SoftwareSystem addDiary(Diary diary) {
+        this.diaries.add(diary);
+        diary.setSoftwareSystem(this);
+        return this;
+    }
+
+    public SoftwareSystem removeDiary(Diary diary) {
+        this.diaries.remove(diary);
+        diary.setSoftwareSystem(null);
+        return this;
+    }
+
+    public void setDiaries(Set<Diary> diaries) {
+        this.diaries = diaries;
+    }
+
+    public Set<TestCase> getTestCases() {
+        return testCases;
+    }
+
+    public SoftwareSystem testCases(Set<TestCase> testCases) {
+        this.testCases = testCases;
+        return this;
+    }
+
+    public SoftwareSystem addTestCase(TestCase testCase) {
+        this.testCases.add(testCase);
+        testCase.setSoftwareSystem(this);
+        return this;
+    }
+
+    public SoftwareSystem removeTestCase(TestCase testCase) {
+        this.testCases.remove(testCase);
+        testCase.setSoftwareSystem(null);
+        return this;
+    }
+
+    public void setTestCases(Set<TestCase> testCases) {
+        this.testCases = testCases;
+    }
+
+    public Set<ThinkAloud> getThinkAlouds() {
+        return thinkAlouds;
+    }
+
+    public SoftwareSystem thinkAlouds(Set<ThinkAloud> thinkAlouds) {
+        this.thinkAlouds = thinkAlouds;
+        return this;
+    }
+
+    public SoftwareSystem addThinkAloud(ThinkAloud thinkAloud) {
+        this.thinkAlouds.add(thinkAloud);
+        thinkAloud.setSoftwareSystem(this);
+        return this;
+    }
+
+    public SoftwareSystem removeThinkAloud(ThinkAloud thinkAloud) {
+        this.thinkAlouds.remove(thinkAloud);
+        thinkAloud.setSoftwareSystem(null);
+        return this;
+    }
+
+    public void setThinkAlouds(Set<ThinkAloud> thinkAlouds) {
+        this.thinkAlouds = thinkAlouds;
     }
 
     public Study getStudy() {

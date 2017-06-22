@@ -22,8 +22,6 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
-import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -43,9 +41,6 @@ public class DiaryResourceIntTest {
 
     private static final String DEFAULT_URI = "AAAAAAAAAA";
     private static final String UPDATED_URI = "BBBBBBBBBB";
-
-    private static final LocalDate DEFAULT_REGISTRED = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_REGISTRED = LocalDate.now(ZoneId.systemDefault());
 
     private static final ArtifactStatus DEFAULT_STATUS = ArtifactStatus.PRIVATE;
     private static final ArtifactStatus UPDATED_STATUS = ArtifactStatus.SUBMITED;
@@ -91,7 +86,6 @@ public class DiaryResourceIntTest {
     public static Diary createEntity(EntityManager em) {
         Diary diary = new Diary()
             .uri(DEFAULT_URI)
-            .registred(DEFAULT_REGISTRED)
             .status(DEFAULT_STATUS);
         return diary;
     }
@@ -118,7 +112,6 @@ public class DiaryResourceIntTest {
         assertThat(diaryList).hasSize(databaseSizeBeforeCreate + 1);
         Diary testDiary = diaryList.get(diaryList.size() - 1);
         assertThat(testDiary.getUri()).isEqualTo(DEFAULT_URI);
-        assertThat(testDiary.getRegistred()).isEqualTo(DEFAULT_REGISTRED);
         assertThat(testDiary.getStatus()).isEqualTo(DEFAULT_STATUS);
 
         // Validate the Diary in Elasticsearch
@@ -157,7 +150,6 @@ public class DiaryResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(diary.getId().intValue())))
             .andExpect(jsonPath("$.[*].uri").value(hasItem(DEFAULT_URI.toString())))
-            .andExpect(jsonPath("$.[*].registred").value(hasItem(DEFAULT_REGISTRED.toString())))
             .andExpect(jsonPath("$.[*].status").value(hasItem(DEFAULT_STATUS.toString())));
     }
 
@@ -173,7 +165,6 @@ public class DiaryResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(diary.getId().intValue()))
             .andExpect(jsonPath("$.uri").value(DEFAULT_URI.toString()))
-            .andExpect(jsonPath("$.registred").value(DEFAULT_REGISTRED.toString()))
             .andExpect(jsonPath("$.status").value(DEFAULT_STATUS.toString()));
     }
 
@@ -197,7 +188,6 @@ public class DiaryResourceIntTest {
         Diary updatedDiary = diaryRepository.findOne(diary.getId());
         updatedDiary
             .uri(UPDATED_URI)
-            .registred(UPDATED_REGISTRED)
             .status(UPDATED_STATUS);
 
         restDiaryMockMvc.perform(put("/api/diaries")
@@ -210,7 +200,6 @@ public class DiaryResourceIntTest {
         assertThat(diaryList).hasSize(databaseSizeBeforeUpdate);
         Diary testDiary = diaryList.get(diaryList.size() - 1);
         assertThat(testDiary.getUri()).isEqualTo(UPDATED_URI);
-        assertThat(testDiary.getRegistred()).isEqualTo(UPDATED_REGISTRED);
         assertThat(testDiary.getStatus()).isEqualTo(UPDATED_STATUS);
 
         // Validate the Diary in Elasticsearch
@@ -271,7 +260,6 @@ public class DiaryResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(diary.getId().intValue())))
             .andExpect(jsonPath("$.[*].uri").value(hasItem(DEFAULT_URI.toString())))
-            .andExpect(jsonPath("$.[*].registred").value(hasItem(DEFAULT_REGISTRED.toString())))
             .andExpect(jsonPath("$.[*].status").value(hasItem(DEFAULT_STATUS.toString())));
     }
 

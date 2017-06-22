@@ -1,6 +1,19 @@
 {
     "fluentMethods": true,
-    "relationships": [],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "diary",
+            "otherEntityName": "diary",
+            "otherEntityRelationshipName": "task"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "study",
+            "otherEntityName": "study",
+            "otherEntityField": "title"
+        }
+    ],
     "fields": [
         {
             "fieldName": "tag",

@@ -24,6 +24,10 @@
         <dd>
             <span jhiTranslate="{{'seodinApp.ArtifactStatus.' + video.status}}">{{video.status}}</span>
         </dd>
+        <dt><span jhiTranslate="seodinApp.video.recorded">Recorded</span></dt>
+        <dd>
+            <span>{{video.recorded | date:'mediumDate'}}</span>
+        </dd>
         <dt><span jhiTranslate="seodinApp.video.interview">Interview</span></dt>
         <dd>
             <div *ngIf="video.interview">

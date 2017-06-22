@@ -22,6 +22,8 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -53,6 +55,9 @@ public class VideoResourceIntTest {
 
     private static final ArtifactStatus DEFAULT_STATUS = ArtifactStatus.PRIVATE;
     private static final ArtifactStatus UPDATED_STATUS = ArtifactStatus.SUBMITED;
+
+    private static final LocalDate DEFAULT_RECORDED = LocalDate.ofEpochDay(0L);
+    private static final LocalDate UPDATED_RECORDED = LocalDate.now(ZoneId.systemDefault());
 
     @Autowired
     private VideoRepository videoRepository;
@@ -98,7 +103,8 @@ public class VideoResourceIntTest {
             .description(DEFAULT_DESCRIPTION)
             .duration(DEFAULT_DURATION)
             .uri(DEFAULT_URI)
-            .status(DEFAULT_STATUS);
+            .status(DEFAULT_STATUS)
+            .recorded(DEFAULT_RECORDED);
         return video;
     }
 
@@ -128,6 +134,7 @@ public class VideoResourceIntTest {
         assertThat(testVideo.getDuration()).isEqualTo(DEFAULT_DURATION);
         assertThat(testVideo.getUri()).isEqualTo(DEFAULT_URI);
         assertThat(testVideo.getStatus()).isEqualTo(DEFAULT_STATUS);
+        assertThat(testVideo.getRecorded()).isEqualTo(DEFAULT_RECORDED);
 
         // Validate the Video in Elasticsearch
         Video videoEs = videoSearchRepository.findOne(testVideo.getId());
@@ -168,7 +175,8 @@ public class VideoResourceIntTest {
             .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION.toString())))
             .andExpect(jsonPath("$.[*].duration").value(hasItem(DEFAULT_DURATION)))
             .andExpect(jsonPath("$.[*].uri").value(hasItem(DEFAULT_URI.toString())))
-            .andExpect(jsonPath("$.[*].status").value(hasItem(DEFAULT_STATUS.toString())));
+            .andExpect(jsonPath("$.[*].status").value(hasItem(DEFAULT_STATUS.toString())))
+            .andExpect(jsonPath("$.[*].recorded").value(hasItem(DEFAULT_RECORDED.toString())));
     }
 
     @Test
@@ -186,7 +194,8 @@ public class VideoResourceIntTest {
             .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION.toString()))
             .andExpect(jsonPath("$.duration").value(DEFAULT_DURATION))
             .andExpect(jsonPath("$.uri").value(DEFAULT_URI.toString()))
-            .andExpect(jsonPath("$.status").value(DEFAULT_STATUS.toString()));
+            .andExpect(jsonPath("$.status").value(DEFAULT_STATUS.toString()))
+            .andExpect(jsonPath("$.recorded").value(DEFAULT_RECORDED.toString()));
     }
 
     @Test
@@ -212,7 +221,8 @@ public class VideoResourceIntTest {
             .description(UPDATED_DESCRIPTION)
             .duration(UPDATED_DURATION)
             .uri(UPDATED_URI)
-            .status(UPDATED_STATUS);
+            .status(UPDATED_STATUS)
+            .recorded(UPDATED_RECORDED);
 
         restVideoMockMvc.perform(put("/api/videos")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -228,6 +238,7 @@ public class VideoResourceIntTest {
         assertThat(testVideo.getDuration()).isEqualTo(UPDATED_DURATION);
         assertThat(testVideo.getUri()).isEqualTo(UPDATED_URI);
         assertThat(testVideo.getStatus()).isEqualTo(UPDATED_STATUS);
+        assertThat(testVideo.getRecorded()).isEqualTo(UPDATED_RECORDED);
 
         // Validate the Video in Elasticsearch
         Video videoEs = videoSearchRepository.findOne(testVideo.getId());
@@ -290,7 +301,8 @@ public class VideoResourceIntTest {
             .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION.toString())))
             .andExpect(jsonPath("$.[*].duration").value(hasItem(DEFAULT_DURATION)))
             .andExpect(jsonPath("$.[*].uri").value(hasItem(DEFAULT_URI.toString())))
-            .andExpect(jsonPath("$.[*].status").value(hasItem(DEFAULT_STATUS.toString())));
+            .andExpect(jsonPath("$.[*].status").value(hasItem(DEFAULT_STATUS.toString())))
+            .andExpect(jsonPath("$.[*].recorded").value(hasItem(DEFAULT_RECORDED.toString())));
     }
 
     @Test

@@ -22,6 +22,13 @@ export class AudioPopupService {
 
         if (id) {
             this.audioService.find(id).subscribe((audio) => {
+                if (audio.recorded) {
+                    audio.recorded = {
+                        year: audio.recorded.getFullYear(),
+                        month: audio.recorded.getMonth() + 1,
+                        day: audio.recorded.getDate()
+                    };
+                }
                 this.audioModalRef(component, audio);
             });
         } else {

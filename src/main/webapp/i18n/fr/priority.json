@@ -4,7 +4,8 @@
             "null": "",
             "MINOR": "MINOR",
             "MAJOR": "MAJOR",
-            "CRITICAL": "CRITICAL"
+            "CRITICAL": "CRITICAL",
+            "BLOCKER": "BLOCKER"
         }
     }
 }

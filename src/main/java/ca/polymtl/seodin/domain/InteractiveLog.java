@@ -41,8 +41,8 @@ public class InteractiveLog implements Serializable {
     @Column(name = "delta")
     private String delta;
 
-    @Column(name = "registred")
-    private LocalDate registred;
+    @Column(name = "recorded")
+    private LocalDate recorded;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "status")
@@ -111,17 +111,17 @@ public class InteractiveLog implements Serializable {
         this.delta = delta;
     }
 
-    public LocalDate getRegistred() {
-        return registred;
+    public LocalDate getRecorded() {
+        return recorded;
     }
 
-    public InteractiveLog registred(LocalDate registred) {
-        this.registred = registred;
+    public InteractiveLog recorded(LocalDate recorded) {
+        this.recorded = recorded;
         return this;
     }
 
-    public void setRegistred(LocalDate registred) {
-        this.registred = registred;
+    public void setRecorded(LocalDate recorded) {
+        this.recorded = recorded;
     }
 
     public ArtifactStatus getStatus() {
@@ -178,7 +178,7 @@ public class InteractiveLog implements Serializable {
             ", sourceHandle='" + getSourceHandle() + "'" +
             ", origin='" + getOrigin() + "'" +
             ", delta='" + getDelta() + "'" +
-            ", registred='" + getRegistred() + "'" +
+            ", recorded='" + getRecorded() + "'" +
             ", status='" + getStatus() + "'" +
             "}";
     }

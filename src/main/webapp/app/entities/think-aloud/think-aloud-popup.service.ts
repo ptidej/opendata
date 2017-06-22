@@ -22,13 +22,6 @@ export class ThinkAloudPopupService {
 
         if (id) {
             this.thinkAloudService.find(id).subscribe((thinkAloud) => {
-                if (thinkAloud.registred) {
-                    thinkAloud.registred = {
-                        year: thinkAloud.registred.getFullYear(),
-                        month: thinkAloud.registred.getMonth() + 1,
-                        day: thinkAloud.registred.getDate()
-                    };
-                }
                 this.thinkAloudModalRef(component, thinkAloud);
             });
         } else {

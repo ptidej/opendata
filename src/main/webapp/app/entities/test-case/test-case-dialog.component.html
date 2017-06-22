@@ -33,7 +33,7 @@
 
         <div class="form-group">
             <label jhiTranslate="seodinApp.testCase.softwareSystem" for="field_softwareSystem">Software System</label>
-            <select class="form-control" id="field_softwareSystem" name="softwareSystem" [(ngModel)]="testCase.softwareSystem">
+            <select class="form-control" id="field_softwareSystem" name="softwareSystem" [(ngModel)]="testCase.softwareSystem" >
                 <option [ngValue]="null"></option>
                 <option [ngValue]="softwareSystemOption.id === testCase.softwareSystem?.id ? testCase.softwareSystem : softwareSystemOption" *ngFor="let softwareSystemOption of softwaresystems; trackBy: trackSoftwareSystemById">{{softwareSystemOption.tag}}</option>
             </select>

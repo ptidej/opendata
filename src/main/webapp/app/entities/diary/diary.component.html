@@ -31,10 +31,9 @@
             <tr>
             <th><span jhiTranslate="global.field.id">ID</span></th>
             <th><span jhiTranslate="seodinApp.diary.uri">Uri</span></th>
-            <th><span jhiTranslate="seodinApp.diary.registred">Registred</span></th>
             <th><span jhiTranslate="seodinApp.diary.status">Status</span></th>
-            <th><span jhiTranslate="seodinApp.diary.task">Task</span></th>
             <th><span jhiTranslate="seodinApp.diary.softwareSystem">Software System</span></th>
+            <th><span jhiTranslate="seodinApp.diary.task">Task</span></th>
             <th><span jhiTranslate="seodinApp.diary.developer">Developer</span></th>
             <th></th>
             </tr>
@@ -43,16 +42,15 @@
             <tr *ngFor="let diary of diaries ;trackBy: trackId">
                 <td><a [routerLink]="['../diary', diary.id ]">{{diary.id}}</a></td>
                 <td>{{diary.uri}}</td>
-                <td>{{diary.registred | date:'mediumDate'}}</td>
                 <td jhiTranslate="{{'seodinApp.ArtifactStatus.' + diary.status}}">{{diary.status}}</td>
-                <td>
-                    <div *ngIf="diary.task">
-                        <a [routerLink]="['../task', diary.task?.id ]" >{{diary.task?.tag}}</a>
-                    </div>
-                </td>
                 <td>
                     <div *ngIf="diary.softwareSystem">
                         <a [routerLink]="['../software-system', diary.softwareSystem?.id ]" >{{diary.softwareSystem?.tag}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="diary.task">
+                        <a [routerLink]="['../task', diary.task?.id ]" >{{diary.task?.tag}}</a>
                     </div>
                 </td>
                 <td>

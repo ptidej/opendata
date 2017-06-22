@@ -41,7 +41,7 @@
                 <td>{{softwareSystem.tag}}</td>
                 <td>
                     <div *ngIf="softwareSystem.study">
-                        <a [routerLink]="['../study', softwareSystem.study?.id ]" >{{softwareSystem.study?.tag}}</a>
+                        <a [routerLink]="['../study', softwareSystem.study?.id ]" >{{softwareSystem.study?.title}}</a>
                     </div>
                 </td>
                 <td class="text-right">

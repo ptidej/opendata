@@ -18,16 +18,6 @@
                 [(ngModel)]="diary.uri"  />
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="seodinApp.diary.registred" for="field_registred">Registred</label>
-            <div class="input-group">
-                <input id="field_registred" type="text" class="form-control" name="registred" ngbDatepicker  #registredDp="ngbDatepicker" [(ngModel)]="diary.registred"
-                />
-                <span class="input-group-btn">
-                    <button type="button" class="btn btn-default" (click)="registredDp.toggle()"><i class="fa fa-calendar"></i></button>
-                </span>
-            </div>
-        </div>
-        <div class="form-group">
             <label class="form-control-label" jhiTranslate="seodinApp.diary.status" for="field_status">Status</label>
             <select class="form-control" name="status" [(ngModel)]="diary.status" id="field_status" >
                 <option value="PRIVATE" jhiTranslate="seodinApp.ArtifactStatus.PRIVATE">PRIVATE</option>
@@ -37,17 +27,17 @@
         </div>
 
         <div class="form-group">
-            <label jhiTranslate="seodinApp.diary.task" for="field_task">Task</label>
-            <select class="form-control" id="field_task" name="task" [(ngModel)]="diary.task">
+            <label jhiTranslate="seodinApp.diary.softwareSystem" for="field_softwareSystem">Software System</label>
+            <select class="form-control" id="field_softwareSystem" name="softwareSystem" [(ngModel)]="diary.softwareSystem" >
                 <option [ngValue]="null"></option>
-                <option [ngValue]="taskOption.id === diary.task?.id ? diary.task : taskOption" *ngFor="let taskOption of tasks; trackBy: trackTaskById">{{taskOption.tag}}</option>
+                <option [ngValue]="softwareSystemOption.id === diary.softwareSystem?.id ? diary.softwareSystem : softwareSystemOption" *ngFor="let softwareSystemOption of softwaresystems; trackBy: trackSoftwareSystemById">{{softwareSystemOption.tag}}</option>
             </select>
         </div>
         <div class="form-group">
-            <label jhiTranslate="seodinApp.diary.softwareSystem" for="field_softwareSystem">Software System</label>
-            <select class="form-control" id="field_softwareSystem" name="softwareSystem" [(ngModel)]="diary.softwareSystem">
+            <label jhiTranslate="seodinApp.diary.task" for="field_task">Task</label>
+            <select class="form-control" id="field_task" name="task" [(ngModel)]="diary.task" >
                 <option [ngValue]="null"></option>
-                <option [ngValue]="softwareSystemOption.id === diary.softwareSystem?.id ? diary.softwareSystem : softwareSystemOption" *ngFor="let softwareSystemOption of softwaresystems; trackBy: trackSoftwareSystemById">{{softwareSystemOption.tag}}</option>
+                <option [ngValue]="taskOption.id === diary.task?.id ? diary.task : taskOption" *ngFor="let taskOption of tasks; trackBy: trackTaskById">{{taskOption.tag}}</option>
             </select>
         </div>
         <div class="form-group">

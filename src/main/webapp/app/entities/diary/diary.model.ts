@@ -5,17 +5,16 @@ const enum ArtifactStatus {
     'PUBLISHED'
 
 };
-import { Task } from '../task';
 import { SoftwareSystem } from '../software-system';
+import { Task } from '../task';
 import { Developer } from '../developer';
 export class Diary {
     constructor(
         public id?: number,
         public uri?: string,
-        public registred?: any,
         public status?: ArtifactStatus,
-        public task?: Task,
         public softwareSystem?: SoftwareSystem,
+        public task?: Task,
         public developer?: Developer,
     ) {
     }

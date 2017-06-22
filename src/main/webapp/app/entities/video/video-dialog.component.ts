@@ -26,6 +26,7 @@ export class VideoDialogComponent implements OnInit {
     interviews: Interview[];
 
     thinkalouds: ThinkAloud[];
+    recordedDp: any;
 
     constructor(
         public activeModal: NgbActiveModal,

@@ -32,7 +32,6 @@
             <th><span jhiTranslate="global.field.id">ID</span></th>
             <th><span jhiTranslate="seodinApp.thinkAloud.tag">Tag</span></th>
             <th><span jhiTranslate="seodinApp.thinkAloud.description">Description</span></th>
-            <th><span jhiTranslate="seodinApp.thinkAloud.registred">Registred</span></th>
             <th><span jhiTranslate="seodinApp.thinkAloud.softwareSystem">Software System</span></th>
             <th><span jhiTranslate="seodinApp.thinkAloud.developer">Developer</span></th>
             <th></th>
@@ -43,7 +42,6 @@
                 <td><a [routerLink]="['../think-aloud', thinkAloud.id ]">{{thinkAloud.id}}</a></td>
                 <td>{{thinkAloud.tag}}</td>
                 <td>{{thinkAloud.description}}</td>
-                <td>{{thinkAloud.registred | date:'mediumDate'}}</td>
                 <td>
                     <div *ngIf="thinkAloud.softwareSystem">
                         <a [routerLink]="['../software-system', thinkAloud.softwareSystem?.id ]" >{{thinkAloud.softwareSystem?.tag}}</a>

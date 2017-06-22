@@ -22,7 +22,7 @@
             <label jhiTranslate="seodinApp.softwareSystem.study" for="field_study">Study</label>
             <select class="form-control" id="field_study" name="study" [(ngModel)]="softwareSystem.study" >
                 <option [ngValue]="null"></option>
-                <option [ngValue]="studyOption.id === softwareSystem.study?.id ? softwareSystem.study : studyOption" *ngFor="let studyOption of studies; trackBy: trackStudyById">{{studyOption.tag}}</option>
+                <option [ngValue]="studyOption.id === softwareSystem.study?.id ? softwareSystem.study : studyOption" *ngFor="let studyOption of studies; trackBy: trackStudyById">{{studyOption.title}}</option>
             </select>
         </div>
     </div>

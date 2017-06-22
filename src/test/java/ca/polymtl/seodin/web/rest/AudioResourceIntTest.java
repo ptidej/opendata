@@ -22,6 +22,8 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -53,6 +55,9 @@ public class AudioResourceIntTest {
 
     private static final ArtifactStatus DEFAULT_STATUS = ArtifactStatus.PRIVATE;
     private static final ArtifactStatus UPDATED_STATUS = ArtifactStatus.SUBMITED;
+
+    private static final LocalDate DEFAULT_RECORDED = LocalDate.ofEpochDay(0L);
+    private static final LocalDate UPDATED_RECORDED = LocalDate.now(ZoneId.systemDefault());
 
     @Autowired
     private AudioRepository audioRepository;
@@ -98,7 +103,8 @@ public class AudioResourceIntTest {
             .description(DEFAULT_DESCRIPTION)
             .duration(DEFAULT_DURATION)
             .uri(DEFAULT_URI)
-            .status(DEFAULT_STATUS);
+            .status(DEFAULT_STATUS)
+            .recorded(DEFAULT_RECORDED);
         return audio;
     }
 
@@ -128,6 +134,7 @@ public class AudioResourceIntTest {
         assertThat(testAudio.getDuration()).isEqualTo(DEFAULT_DURATION);
         assertThat(testAudio.getUri()).isEqualTo(DEFAULT_URI);
         assertThat(testAudio.getStatus()).isEqualTo(DEFAULT_STATUS);
+        assertThat(testAudio.getRecorded()).isEqualTo(DEFAULT_RECORDED);
 
         // Validate the Audio in Elasticsearch
         Audio audioEs = audioSearchRepository.findOne(testAudio.getId());
@@ -168,7 +175,8 @@ public class AudioResourceIntTest {
             .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION.toString())))
             .andExpect(jsonPath("$.[*].duration").value(hasItem(DEFAULT_DURATION)))
             .andExpect(jsonPath("$.[*].uri").value(hasItem(DEFAULT_URI.toString())))
-            .andExpect(jsonPath("$.[*].status").value(hasItem(DEFAULT_STATUS.toString())));
+            .andExpect(jsonPath("$.[*].status").value(hasItem(DEFAULT_STATUS.toString())))
+            .andExpect(jsonPath("$.[*].recorded").value(hasItem(DEFAULT_RECORDED.toString())));
     }
 
     @Test
@@ -186,7 +194,8 @@ public class AudioResourceIntTest {
             .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION.toString()))
             .andExpect(jsonPath("$.duration").value(DEFAULT_DURATION))
             .andExpect(jsonPath("$.uri").value(DEFAULT_URI.toString()))
-            .andExpect(jsonPath("$.status").value(DEFAULT_STATUS.toString()));
+            .andExpect(jsonPath("$.status").value(DEFAULT_STATUS.toString()))
+            .andExpect(jsonPath("$.recorded").value(DEFAULT_RECORDED.toString()));
     }
 
     @Test
@@ -212,7 +221,8 @@ public class AudioResourceIntTest {
             .description(UPDATED_DESCRIPTION)
             .duration(UPDATED_DURATION)
             .uri(UPDATED_URI)
-            .status(UPDATED_STATUS);
+            .status(UPDATED_STATUS)
+            .recorded(UPDATED_RECORDED);
 
         restAudioMockMvc.perform(put("/api/audios")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -228,6 +238,7 @@ public class AudioResourceIntTest {
         assertThat(testAudio.getDuration()).isEqualTo(UPDATED_DURATION);
         assertThat(testAudio.getUri()).isEqualTo(UPDATED_URI);
         assertThat(testAudio.getStatus()).isEqualTo(UPDATED_STATUS);
+        assertThat(testAudio.getRecorded()).isEqualTo(UPDATED_RECORDED);
 
         // Validate the Audio in Elasticsearch
         Audio audioEs = audioSearchRepository.findOne(testAudio.getId());
@@ -290,7 +301,8 @@ public class AudioResourceIntTest {
             .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION.toString())))
             .andExpect(jsonPath("$.[*].duration").value(hasItem(DEFAULT_DURATION)))
             .andExpect(jsonPath("$.[*].uri").value(hasItem(DEFAULT_URI.toString())))
-            .andExpect(jsonPath("$.[*].status").value(hasItem(DEFAULT_STATUS.toString())));
+            .andExpect(jsonPath("$.[*].status").value(hasItem(DEFAULT_STATUS.toString())))
+            .andExpect(jsonPath("$.[*].recorded").value(hasItem(DEFAULT_RECORDED.toString())));
     }
 
     @Test

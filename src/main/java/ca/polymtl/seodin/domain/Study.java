@@ -47,6 +47,16 @@ public class Study implements Serializable {
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<SoftwareSystem> softwareSystems = new HashSet<>();
 
+    @OneToMany(mappedBy = "study")
+    @JsonIgnore
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<Script> scripts = new HashSet<>();
+
+    @OneToMany(mappedBy = "study")
+    @JsonIgnore
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<Task> tasks = new HashSet<>();
+
     public Long getId() {
         return id;
     }
@@ -142,6 +152,56 @@ public class Study implements Serializable {
 
     public void setSoftwareSystems(Set<SoftwareSystem> softwareSystems) {
         this.softwareSystems = softwareSystems;
+    }
+
+    public Set<Script> getScripts() {
+        return scripts;
+    }
+
+    public Study scripts(Set<Script> scripts) {
+        this.scripts = scripts;
+        return this;
+    }
+
+    public Study addScript(Script script) {
+        this.scripts.add(script);
+        script.setStudy(this);
+        return this;
+    }
+
+    public Study removeScript(Script script) {
+        this.scripts.remove(script);
+        script.setStudy(null);
+        return this;
+    }
+
+    public void setScripts(Set<Script> scripts) {
+        this.scripts = scripts;
+    }
+
+    public Set<Task> getTasks() {
+        return tasks;
+    }
+
+    public Study tasks(Set<Task> tasks) {
+        this.tasks = tasks;
+        return this;
+    }
+
+    public Study addTask(Task task) {
+        this.tasks.add(task);
+        task.setStudy(this);
+        return this;
+    }
+
+    public Study removeTask(Task task) {
+        this.tasks.remove(task);
+        task.setStudy(null);
+        return this;
+    }
+
+    public void setTasks(Set<Task> tasks) {
+        this.tasks = tasks;
     }
 
     @Override

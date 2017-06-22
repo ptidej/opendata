@@ -9,6 +9,8 @@ import { EventManager, AlertService } from 'ng-jhipster';
 import { Script } from './script.model';
 import { ScriptPopupService } from './script-popup.service';
 import { ScriptService } from './script.service';
+import { Study, StudyService } from '../study';
+import { ResponseWrapper } from '../../shared';
 
 @Component({
     selector: 'jhi-script-dialog',
@@ -20,10 +22,13 @@ export class ScriptDialogComponent implements OnInit {
     authorities: any[];
     isSaving: boolean;
 
+    studies: Study[];
+
     constructor(
         public activeModal: NgbActiveModal,
         private alertService: AlertService,
         private scriptService: ScriptService,
+        private studyService: StudyService,
         private eventManager: EventManager
     ) {
     }
@@ -31,6 +36,8 @@ export class ScriptDialogComponent implements OnInit {
     ngOnInit() {
         this.isSaving = false;
         this.authorities = ['ROLE_USER', 'ROLE_ADMIN'];
+        this.studyService.query()
+            .subscribe((res: ResponseWrapper) => { this.studies = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
     }
 
     clear() {
@@ -76,6 +83,10 @@ export class ScriptDialogComponent implements OnInit {
 
     private onError(error) {
         this.alertService.error(error.message, null, null);
+    }
+
+    trackStudyById(index: number, item: Study) {
+        return item.id;
     }
 }
 

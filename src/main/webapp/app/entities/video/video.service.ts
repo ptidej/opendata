@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
+import { DateUtils } from 'ng-jhipster';
 
 import { Video } from './video.model';
 import { ResponseWrapper, createRequestOption } from '../../shared';
@@ -11,25 +12,31 @@ export class VideoService {
     private resourceUrl = 'api/videos';
     private resourceSearchUrl = 'api/_search/videos';
 
-    constructor(private http: Http) { }
+    constructor(private http: Http, private dateUtils: DateUtils) { }
 
     create(video: Video): Observable<Video> {
         const copy = this.convert(video);
         return this.http.post(this.resourceUrl, copy).map((res: Response) => {
-            return res.json();
+            const jsonResponse = res.json();
+            this.convertItemFromServer(jsonResponse);
+            return jsonResponse;
         });
     }
 
     update(video: Video): Observable<Video> {
         const copy = this.convert(video);
         return this.http.put(this.resourceUrl, copy).map((res: Response) => {
-            return res.json();
+            const jsonResponse = res.json();
+            this.convertItemFromServer(jsonResponse);
+            return jsonResponse;
         });
     }
 
     find(id: number): Observable<Video> {
         return this.http.get(`${this.resourceUrl}/${id}`).map((res: Response) => {
-            return res.json();
+            const jsonResponse = res.json();
+            this.convertItemFromServer(jsonResponse);
+            return jsonResponse;
         });
     }
 
@@ -51,11 +58,21 @@ export class VideoService {
 
     private convertResponse(res: Response): ResponseWrapper {
         const jsonResponse = res.json();
+        for (let i = 0; i < jsonResponse.length; i++) {
+            this.convertItemFromServer(jsonResponse[i]);
+        }
         return new ResponseWrapper(res.headers, jsonResponse, res.status);
+    }
+
+    private convertItemFromServer(entity: any) {
+        entity.recorded = this.dateUtils
+            .convertLocalDateFromServer(entity.recorded);
     }
 
     private convert(video: Video): Video {
         const copy: Video = Object.assign({}, video);
+        copy.recorded = this.dateUtils
+            .convertLocalDateToServer(video.recorded);
         return copy;
     }
 }

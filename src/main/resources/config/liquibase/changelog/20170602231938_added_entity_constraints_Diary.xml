@@ -8,17 +8,17 @@
     -->
     <changeSet id="20170602231938-2" author="jhipster">
         
-        <addForeignKeyConstraint baseColumnNames="task_id"
-                                 baseTableName="diary"
-                                 constraintName="fk_diary_task_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="task"/>
-
         <addForeignKeyConstraint baseColumnNames="software_system_id"
                                  baseTableName="diary"
                                  constraintName="fk_diary_software_system_id"
                                  referencedColumnNames="id"
                                  referencedTableName="software_system"/>
+
+        <addForeignKeyConstraint baseColumnNames="task_id"
+                                 baseTableName="diary"
+                                 constraintName="fk_diary_task_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="task"/>
 
         <addForeignKeyConstraint baseColumnNames="developer_id"
                                  baseTableName="diary"

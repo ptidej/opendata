@@ -19,7 +19,8 @@
             "tag": "Tag",
             "description": "Description",
             "sourceCode": "Source Code",
-            "status": "Status"
+            "status": "Status",
+            "study": "Study"
         }
     }
 }

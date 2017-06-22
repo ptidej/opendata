@@ -19,7 +19,8 @@
         },
         {
             "fieldName": "description",
-            "fieldType": "String"
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
         },
         {
             "fieldName": "status",
@@ -29,7 +30,7 @@
         {
             "fieldName": "resolution",
             "fieldType": "Resolution",
-            "fieldValues": "NONE,FIXED,WONTFIX"
+            "fieldValues": "NONE,FIXED,WONTFIX,INVALID"
         },
         {
             "fieldName": "severity",
@@ -39,10 +40,10 @@
         {
             "fieldName": "priority",
             "fieldType": "Priority",
-            "fieldValues": "MINOR,MAJOR,CRITICAL"
+            "fieldValues": "MINOR,MAJOR,CRITICAL,BLOCKER"
         },
         {
-            "fieldName": "registred",
+            "fieldName": "recorded",
             "fieldType": "LocalDate"
         },
         {

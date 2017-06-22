@@ -35,6 +35,7 @@
             <th><span jhiTranslate="seodinApp.video.duration">Duration</span></th>
             <th><span jhiTranslate="seodinApp.video.uri">Uri</span></th>
             <th><span jhiTranslate="seodinApp.video.status">Status</span></th>
+            <th><span jhiTranslate="seodinApp.video.recorded">Recorded</span></th>
             <th><span jhiTranslate="seodinApp.video.interview">Interview</span></th>
             <th><span jhiTranslate="seodinApp.video.thinkaloud">Thinkaloud</span></th>
             <th></th>
@@ -48,6 +49,7 @@
                 <td>{{video.duration}}</td>
                 <td>{{video.uri}}</td>
                 <td jhiTranslate="{{'seodinApp.ArtifactStatus.' + video.status}}">{{video.status}}</td>
+                <td>{{video.recorded | date:'mediumDate'}}</td>
                 <td>
                     <div *ngIf="video.interview">
                         <a [routerLink]="['../interview', video.interview?.id ]" >{{video.interview?.tag}}</a>

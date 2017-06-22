@@ -8,24 +8,20 @@
         <dd>
             <span>{{diary.uri}}</span>
         </dd>
-        <dt><span jhiTranslate="seodinApp.diary.registred">Registred</span></dt>
-        <dd>
-            <span>{{diary.registred | date:'mediumDate'}}</span>
-        </dd>
         <dt><span jhiTranslate="seodinApp.diary.status">Status</span></dt>
         <dd>
             <span jhiTranslate="{{'seodinApp.ArtifactStatus.' + diary.status}}">{{diary.status}}</span>
-        </dd>
-        <dt><span jhiTranslate="seodinApp.diary.task">Task</span></dt>
-        <dd>
-            <div *ngIf="diary.task">
-                <a [routerLink]="['/task', diary.task?.id]">{{diary.task?.tag}}</a>
-            </div>
         </dd>
         <dt><span jhiTranslate="seodinApp.diary.softwareSystem">Software System</span></dt>
         <dd>
             <div *ngIf="diary.softwareSystem">
                 <a [routerLink]="['/software-system', diary.softwareSystem?.id]">{{diary.softwareSystem?.tag}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="seodinApp.diary.task">Task</span></dt>
+        <dd>
+            <div *ngIf="diary.task">
+                <a [routerLink]="['/task', diary.task?.id]">{{diary.task?.tag}}</a>
             </div>
         </dd>
         <dt><span jhiTranslate="seodinApp.diary.developer">Developer</span></dt>

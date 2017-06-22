@@ -7,7 +7,6 @@ import org.springframework.data.elasticsearch.annotations.Document;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.Objects;
@@ -32,9 +31,6 @@ public class Interview implements Serializable {
 
     @Column(name = "description")
     private String description;
-
-    @Column(name = "registred")
-    private LocalDate registred;
 
     @OneToMany(mappedBy = "interview")
     @JsonIgnore
@@ -86,19 +82,6 @@ public class Interview implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public LocalDate getRegistred() {
-        return registred;
-    }
-
-    public Interview registred(LocalDate registred) {
-        this.registred = registred;
-        return this;
-    }
-
-    public void setRegistred(LocalDate registred) {
-        this.registred = registred;
     }
 
     public Set<Audio> getAudios() {
@@ -215,7 +198,6 @@ public class Interview implements Serializable {
             "id=" + getId() +
             ", tag='" + getTag() + "'" +
             ", description='" + getDescription() + "'" +
-            ", registred='" + getRegistred() + "'" +
             "}";
     }
 }

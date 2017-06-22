@@ -7,7 +7,6 @@ import org.springframework.data.elasticsearch.annotations.Document;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.Objects;
@@ -33,13 +32,6 @@ public class ThinkAloud implements Serializable {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "registred")
-    private LocalDate registred;
-
-    @OneToOne
-    @JoinColumn(unique = true)
-    private SoftwareSystem softwareSystem;
-
     @OneToMany(mappedBy = "thinkaloud")
     @JsonIgnore
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
@@ -49,6 +41,9 @@ public class ThinkAloud implements Serializable {
     @JsonIgnore
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Video> videos = new HashSet<>();
+
+    @ManyToOne
+    private SoftwareSystem softwareSystem;
 
     @ManyToOne
     private Developer developer;
@@ -85,32 +80,6 @@ public class ThinkAloud implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public LocalDate getRegistred() {
-        return registred;
-    }
-
-    public ThinkAloud registred(LocalDate registred) {
-        this.registred = registred;
-        return this;
-    }
-
-    public void setRegistred(LocalDate registred) {
-        this.registred = registred;
-    }
-
-    public SoftwareSystem getSoftwareSystem() {
-        return softwareSystem;
-    }
-
-    public ThinkAloud softwareSystem(SoftwareSystem softwareSystem) {
-        this.softwareSystem = softwareSystem;
-        return this;
-    }
-
-    public void setSoftwareSystem(SoftwareSystem softwareSystem) {
-        this.softwareSystem = softwareSystem;
     }
 
     public Set<Note> getNotes() {
@@ -163,6 +132,19 @@ public class ThinkAloud implements Serializable {
         this.videos = videos;
     }
 
+    public SoftwareSystem getSoftwareSystem() {
+        return softwareSystem;
+    }
+
+    public ThinkAloud softwareSystem(SoftwareSystem softwareSystem) {
+        this.softwareSystem = softwareSystem;
+        return this;
+    }
+
+    public void setSoftwareSystem(SoftwareSystem softwareSystem) {
+        this.softwareSystem = softwareSystem;
+    }
+
     public Developer getDeveloper() {
         return developer;
     }
@@ -202,7 +184,6 @@ public class ThinkAloud implements Serializable {
             "id=" + getId() +
             ", tag='" + getTag() + "'" +
             ", description='" + getDescription() + "'" +
-            ", registred='" + getRegistred() + "'" +
             "}";
     }
 }

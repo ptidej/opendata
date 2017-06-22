@@ -27,7 +27,7 @@
             "fieldType": "String"
         },
         {
-            "fieldName": "registred",
+            "fieldName": "recorded",
             "fieldType": "LocalDate"
         },
         {

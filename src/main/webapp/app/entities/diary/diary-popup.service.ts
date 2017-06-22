@@ -22,13 +22,6 @@ export class DiaryPopupService {
 
         if (id) {
             this.diaryService.find(id).subscribe((diary) => {
-                if (diary.registred) {
-                    diary.registred = {
-                        year: diary.registred.getFullYear(),
-                        month: diary.registred.getMonth() + 1,
-                        day: diary.registred.getDate()
-                    };
-                }
                 this.diaryModalRef(component, diary);
             });
         } else {

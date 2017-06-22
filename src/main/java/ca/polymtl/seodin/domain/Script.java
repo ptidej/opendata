@@ -38,6 +38,9 @@ public class Script implements Serializable {
     @Column(name = "status")
     private ArtifactStatus status;
 
+    @ManyToOne
+    private Study study;
+
     public Long getId() {
         return id;
     }
@@ -96,6 +99,19 @@ public class Script implements Serializable {
 
     public void setStatus(ArtifactStatus status) {
         this.status = status;
+    }
+
+    public Study getStudy() {
+        return study;
+    }
+
+    public Script study(Study study) {
+        this.study = study;
+        return this;
+    }
+
+    public void setStudy(Study study) {
+        this.study = study;
     }
 
     @Override

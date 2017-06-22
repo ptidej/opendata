@@ -75,6 +75,12 @@ public class CacheConfiguration {
             cm.createCache(ca.polymtl.seodin.domain.SourceCode.class.getName() + ".designPatterns", jcacheConfiguration);
             cm.createCache(ca.polymtl.seodin.domain.DesignPattern.class.getName(), jcacheConfiguration);
             cm.createCache(ca.polymtl.seodin.domain.Script.class.getName(), jcacheConfiguration);
+            cm.createCache(ca.polymtl.seodin.domain.Study.class.getName() + ".scripts", jcacheConfiguration);
+            cm.createCache(ca.polymtl.seodin.domain.Study.class.getName() + ".tasks", jcacheConfiguration);
+            cm.createCache(ca.polymtl.seodin.domain.SoftwareSystem.class.getName() + ".diaries", jcacheConfiguration);
+            cm.createCache(ca.polymtl.seodin.domain.SoftwareSystem.class.getName() + ".testCases", jcacheConfiguration);
+            cm.createCache(ca.polymtl.seodin.domain.SoftwareSystem.class.getName() + ".thinkAlouds", jcacheConfiguration);
+            cm.createCache(ca.polymtl.seodin.domain.Task.class.getName() + ".diaries", jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

@@ -30,10 +30,6 @@
                 <constraints nullable="true" />
             </column>
 
-            <column name="registred" type="date">
-                <constraints nullable="true" />
-            </column>
-
             <column name="developer_id" type="bigint">
                 <constraints nullable="true" />
             </column>

@@ -54,8 +54,8 @@ public class InteractiveLogResourceIntTest {
     private static final String DEFAULT_DELTA = "AAAAAAAAAA";
     private static final String UPDATED_DELTA = "BBBBBBBBBB";
 
-    private static final LocalDate DEFAULT_REGISTRED = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_REGISTRED = LocalDate.now(ZoneId.systemDefault());
+    private static final LocalDate DEFAULT_RECORDED = LocalDate.ofEpochDay(0L);
+    private static final LocalDate UPDATED_RECORDED = LocalDate.now(ZoneId.systemDefault());
 
     private static final ArtifactStatus DEFAULT_STATUS = ArtifactStatus.PRIVATE;
     private static final ArtifactStatus UPDATED_STATUS = ArtifactStatus.SUBMITED;
@@ -104,7 +104,7 @@ public class InteractiveLogResourceIntTest {
             .sourceHandle(DEFAULT_SOURCE_HANDLE)
             .origin(DEFAULT_ORIGIN)
             .delta(DEFAULT_DELTA)
-            .registred(DEFAULT_REGISTRED)
+            .recorded(DEFAULT_RECORDED)
             .status(DEFAULT_STATUS);
         return interactiveLog;
     }
@@ -134,7 +134,7 @@ public class InteractiveLogResourceIntTest {
         assertThat(testInteractiveLog.getSourceHandle()).isEqualTo(DEFAULT_SOURCE_HANDLE);
         assertThat(testInteractiveLog.getOrigin()).isEqualTo(DEFAULT_ORIGIN);
         assertThat(testInteractiveLog.getDelta()).isEqualTo(DEFAULT_DELTA);
-        assertThat(testInteractiveLog.getRegistred()).isEqualTo(DEFAULT_REGISTRED);
+        assertThat(testInteractiveLog.getRecorded()).isEqualTo(DEFAULT_RECORDED);
         assertThat(testInteractiveLog.getStatus()).isEqualTo(DEFAULT_STATUS);
 
         // Validate the InteractiveLog in Elasticsearch
@@ -176,7 +176,7 @@ public class InteractiveLogResourceIntTest {
             .andExpect(jsonPath("$.[*].sourceHandle").value(hasItem(DEFAULT_SOURCE_HANDLE.toString())))
             .andExpect(jsonPath("$.[*].origin").value(hasItem(DEFAULT_ORIGIN.toString())))
             .andExpect(jsonPath("$.[*].delta").value(hasItem(DEFAULT_DELTA.toString())))
-            .andExpect(jsonPath("$.[*].registred").value(hasItem(DEFAULT_REGISTRED.toString())))
+            .andExpect(jsonPath("$.[*].recorded").value(hasItem(DEFAULT_RECORDED.toString())))
             .andExpect(jsonPath("$.[*].status").value(hasItem(DEFAULT_STATUS.toString())));
     }
 
@@ -195,7 +195,7 @@ public class InteractiveLogResourceIntTest {
             .andExpect(jsonPath("$.sourceHandle").value(DEFAULT_SOURCE_HANDLE.toString()))
             .andExpect(jsonPath("$.origin").value(DEFAULT_ORIGIN.toString()))
             .andExpect(jsonPath("$.delta").value(DEFAULT_DELTA.toString()))
-            .andExpect(jsonPath("$.registred").value(DEFAULT_REGISTRED.toString()))
+            .andExpect(jsonPath("$.recorded").value(DEFAULT_RECORDED.toString()))
             .andExpect(jsonPath("$.status").value(DEFAULT_STATUS.toString()));
     }
 
@@ -222,7 +222,7 @@ public class InteractiveLogResourceIntTest {
             .sourceHandle(UPDATED_SOURCE_HANDLE)
             .origin(UPDATED_ORIGIN)
             .delta(UPDATED_DELTA)
-            .registred(UPDATED_REGISTRED)
+            .recorded(UPDATED_RECORDED)
             .status(UPDATED_STATUS);
 
         restInteractiveLogMockMvc.perform(put("/api/interactive-logs")
@@ -238,7 +238,7 @@ public class InteractiveLogResourceIntTest {
         assertThat(testInteractiveLog.getSourceHandle()).isEqualTo(UPDATED_SOURCE_HANDLE);
         assertThat(testInteractiveLog.getOrigin()).isEqualTo(UPDATED_ORIGIN);
         assertThat(testInteractiveLog.getDelta()).isEqualTo(UPDATED_DELTA);
-        assertThat(testInteractiveLog.getRegistred()).isEqualTo(UPDATED_REGISTRED);
+        assertThat(testInteractiveLog.getRecorded()).isEqualTo(UPDATED_RECORDED);
         assertThat(testInteractiveLog.getStatus()).isEqualTo(UPDATED_STATUS);
 
         // Validate the InteractiveLog in Elasticsearch
@@ -302,7 +302,7 @@ public class InteractiveLogResourceIntTest {
             .andExpect(jsonPath("$.[*].sourceHandle").value(hasItem(DEFAULT_SOURCE_HANDLE.toString())))
             .andExpect(jsonPath("$.[*].origin").value(hasItem(DEFAULT_ORIGIN.toString())))
             .andExpect(jsonPath("$.[*].delta").value(hasItem(DEFAULT_DELTA.toString())))
-            .andExpect(jsonPath("$.[*].registred").value(hasItem(DEFAULT_REGISTRED.toString())))
+            .andExpect(jsonPath("$.[*].recorded").value(hasItem(DEFAULT_RECORDED.toString())))
             .andExpect(jsonPath("$.[*].status").value(hasItem(DEFAULT_STATUS.toString())));
     }
 

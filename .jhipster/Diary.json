@@ -2,20 +2,16 @@
     "fluentMethods": true,
     "relationships": [
         {
-            "relationshipType": "one-to-one",
-            "relationshipName": "task",
-            "otherEntityName": "task",
-            "otherEntityField": "tag",
-            "ownerSide": true,
-            "otherEntityRelationshipName": "diary"
-        },
-        {
-            "relationshipType": "one-to-one",
+            "relationshipType": "many-to-one",
             "relationshipName": "softwareSystem",
             "otherEntityName": "softwareSystem",
-            "otherEntityField": "tag",
-            "ownerSide": true,
-            "otherEntityRelationshipName": "diary"
+            "otherEntityField": "tag"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "task",
+            "otherEntityName": "task",
+            "otherEntityField": "tag"
         },
         {
             "relationshipType": "many-to-one",
@@ -28,10 +24,6 @@
         {
             "fieldName": "uri",
             "fieldType": "String"
-        },
-        {
-            "fieldName": "registred",
-            "fieldType": "LocalDate"
         },
         {
             "fieldName": "status",

@@ -22,8 +22,6 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
-import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -45,9 +43,6 @@ public class InterviewResourceIntTest {
 
     private static final String DEFAULT_DESCRIPTION = "AAAAAAAAAA";
     private static final String UPDATED_DESCRIPTION = "BBBBBBBBBB";
-
-    private static final LocalDate DEFAULT_REGISTRED = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_REGISTRED = LocalDate.now(ZoneId.systemDefault());
 
     @Autowired
     private InterviewRepository interviewRepository;
@@ -90,8 +85,7 @@ public class InterviewResourceIntTest {
     public static Interview createEntity(EntityManager em) {
         Interview interview = new Interview()
             .tag(DEFAULT_TAG)
-            .description(DEFAULT_DESCRIPTION)
-            .registred(DEFAULT_REGISTRED);
+            .description(DEFAULT_DESCRIPTION);
         return interview;
     }
 
@@ -118,7 +112,6 @@ public class InterviewResourceIntTest {
         Interview testInterview = interviewList.get(interviewList.size() - 1);
         assertThat(testInterview.getTag()).isEqualTo(DEFAULT_TAG);
         assertThat(testInterview.getDescription()).isEqualTo(DEFAULT_DESCRIPTION);
-        assertThat(testInterview.getRegistred()).isEqualTo(DEFAULT_REGISTRED);
 
         // Validate the Interview in Elasticsearch
         Interview interviewEs = interviewSearchRepository.findOne(testInterview.getId());
@@ -156,8 +149,7 @@ public class InterviewResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(interview.getId().intValue())))
             .andExpect(jsonPath("$.[*].tag").value(hasItem(DEFAULT_TAG.toString())))
-            .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION.toString())))
-            .andExpect(jsonPath("$.[*].registred").value(hasItem(DEFAULT_REGISTRED.toString())));
+            .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION.toString())));
     }
 
     @Test
@@ -172,8 +164,7 @@ public class InterviewResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(interview.getId().intValue()))
             .andExpect(jsonPath("$.tag").value(DEFAULT_TAG.toString()))
-            .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION.toString()))
-            .andExpect(jsonPath("$.registred").value(DEFAULT_REGISTRED.toString()));
+            .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION.toString()));
     }
 
     @Test
@@ -196,8 +187,7 @@ public class InterviewResourceIntTest {
         Interview updatedInterview = interviewRepository.findOne(interview.getId());
         updatedInterview
             .tag(UPDATED_TAG)
-            .description(UPDATED_DESCRIPTION)
-            .registred(UPDATED_REGISTRED);
+            .description(UPDATED_DESCRIPTION);
 
         restInterviewMockMvc.perform(put("/api/interviews")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -210,7 +200,6 @@ public class InterviewResourceIntTest {
         Interview testInterview = interviewList.get(interviewList.size() - 1);
         assertThat(testInterview.getTag()).isEqualTo(UPDATED_TAG);
         assertThat(testInterview.getDescription()).isEqualTo(UPDATED_DESCRIPTION);
-        assertThat(testInterview.getRegistred()).isEqualTo(UPDATED_REGISTRED);
 
         // Validate the Interview in Elasticsearch
         Interview interviewEs = interviewSearchRepository.findOne(testInterview.getId());
@@ -270,8 +259,7 @@ public class InterviewResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(interview.getId().intValue())))
             .andExpect(jsonPath("$.[*].tag").value(hasItem(DEFAULT_TAG.toString())))
-            .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION.toString())))
-            .andExpect(jsonPath("$.[*].registred").value(hasItem(DEFAULT_REGISTRED.toString())));
+            .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION.toString())));
     }
 
     @Test

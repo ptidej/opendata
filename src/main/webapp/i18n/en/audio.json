@@ -21,6 +21,7 @@
             "duration": "Duration",
             "uri": "Uri",
             "status": "Status",
+            "recorded": "Recorded",
             "interview": "Interview"
         }
     }

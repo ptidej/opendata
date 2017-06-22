@@ -35,6 +35,10 @@
             "fieldName": "status",
             "fieldType": "ArtifactStatus",
             "fieldValues": "PRIVATE,SUBMITED,PUBLISHED"
+        },
+        {
+            "fieldName": "recorded",
+            "fieldType": "LocalDate"
         }
     ],
     "changelogDate": "20170602231940",

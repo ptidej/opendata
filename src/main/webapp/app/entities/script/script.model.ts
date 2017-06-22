@@ -5,6 +5,7 @@ const enum ArtifactStatus {
     'PUBLISHED'
 
 };
+import { Study } from '../study';
 export class Script {
     constructor(
         public id?: number,
@@ -12,6 +13,7 @@ export class Script {
         public description?: string,
         public sourceCode?: string,
         public status?: ArtifactStatus,
+        public study?: Study,
     ) {
     }
 }

@@ -22,6 +22,13 @@ export class VideoPopupService {
 
         if (id) {
             this.videoService.find(id).subscribe((video) => {
+                if (video.recorded) {
+                    video.recorded = {
+                        year: video.recorded.getFullYear(),
+                        month: video.recorded.getMonth() + 1,
+                        day: video.recorded.getDate()
+                    };
+                }
                 this.videoModalRef(component, video);
             });
         } else {

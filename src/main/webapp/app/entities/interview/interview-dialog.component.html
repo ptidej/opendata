@@ -22,16 +22,6 @@
             <input type="text" class="form-control" name="description" id="field_description"
                 [(ngModel)]="interview.description"  />
         </div>
-        <div class="form-group">
-            <label class="form-control-label" jhiTranslate="seodinApp.interview.registred" for="field_registred">Registred</label>
-            <div class="input-group">
-                <input id="field_registred" type="text" class="form-control" name="registred" ngbDatepicker  #registredDp="ngbDatepicker" [(ngModel)]="interview.registred"
-                />
-                <span class="input-group-btn">
-                    <button type="button" class="btn btn-default" (click)="registredDp.toggle()"><i class="fa fa-calendar"></i></button>
-                </span>
-            </div>
-        </div>
 
         <div class="form-group">
             <label jhiTranslate="seodinApp.interview.developer" for="field_developer">Developer</label>

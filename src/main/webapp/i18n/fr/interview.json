@@ -18,7 +18,6 @@
             },
             "tag": "Tag",
             "description": "Description",
-            "registred": "Registred",
             "audio": "Audio",
             "video": "Video",
             "note": "Note",

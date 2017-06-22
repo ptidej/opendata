@@ -20,7 +20,9 @@
             "description": "Description",
             "author": "Author",
             "developer": "Developer",
-            "softwareSystem": "Software System"
+            "softwareSystem": "Software System",
+            "script": "Script",
+            "task": "Task"
         }
     }
 }

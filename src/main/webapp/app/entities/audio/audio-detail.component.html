@@ -24,6 +24,10 @@
         <dd>
             <span jhiTranslate="{{'seodinApp.ArtifactStatus.' + audio.status}}">{{audio.status}}</span>
         </dd>
+        <dt><span jhiTranslate="seodinApp.audio.recorded">Recorded</span></dt>
+        <dd>
+            <span>{{audio.recorded | date:'mediumDate'}}</span>
+        </dd>
         <dt><span jhiTranslate="seodinApp.audio.interview">Interview</span></dt>
         <dd>
             <div *ngIf="audio.interview">

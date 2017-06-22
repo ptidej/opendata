@@ -6,6 +6,7 @@ import org.springframework.data.elasticsearch.annotations.Document;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Objects;
 
 import ca.polymtl.seodin.domain.enumeration.ArtifactStatus;
@@ -40,6 +41,9 @@ public class Audio implements Serializable {
     @Enumerated(EnumType.STRING)
     @Column(name = "status")
     private ArtifactStatus status;
+
+    @Column(name = "recorded")
+    private LocalDate recorded;
 
     @ManyToOne
     private Interview interview;
@@ -117,6 +121,19 @@ public class Audio implements Serializable {
         this.status = status;
     }
 
+    public LocalDate getRecorded() {
+        return recorded;
+    }
+
+    public Audio recorded(LocalDate recorded) {
+        this.recorded = recorded;
+        return this;
+    }
+
+    public void setRecorded(LocalDate recorded) {
+        this.recorded = recorded;
+    }
+
     public Interview getInterview() {
         return interview;
     }
@@ -159,6 +176,7 @@ public class Audio implements Serializable {
             ", duration='" + getDuration() + "'" +
             ", uri='" + getUri() + "'" +
             ", status='" + getStatus() + "'" +
+            ", recorded='" + getRecorded() + "'" +
             "}";
     }
 }

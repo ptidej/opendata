@@ -36,12 +36,12 @@
                 [(ngModel)]="interactiveLog.delta"  />
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="seodinApp.interactiveLog.registred" for="field_registred">Registred</label>
+            <label class="form-control-label" jhiTranslate="seodinApp.interactiveLog.recorded" for="field_recorded">Recorded</label>
             <div class="input-group">
-                <input id="field_registred" type="text" class="form-control" name="registred" ngbDatepicker  #registredDp="ngbDatepicker" [(ngModel)]="interactiveLog.registred"
+                <input id="field_recorded" type="text" class="form-control" name="recorded" ngbDatepicker  #recordedDp="ngbDatepicker" [(ngModel)]="interactiveLog.recorded"
                 />
                 <span class="input-group-btn">
-                    <button type="button" class="btn btn-default" (click)="registredDp.toggle()"><i class="fa fa-calendar"></i></button>
+                    <button type="button" class="btn btn-default" (click)="recordedDp.toggle()"><i class="fa fa-calendar"></i></button>
                 </span>
             </div>
         </div>

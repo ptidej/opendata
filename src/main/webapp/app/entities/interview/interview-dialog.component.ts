@@ -23,7 +23,6 @@ export class InterviewDialogComponent implements OnInit {
     isSaving: boolean;
 
     developers: Developer[];
-    registredDp: any;
 
     constructor(
         public activeModal: NgbActiveModal,

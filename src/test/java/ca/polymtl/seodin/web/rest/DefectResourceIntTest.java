@@ -20,6 +20,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.Base64Utils;
 
 import javax.persistence.EntityManager;
 import java.time.LocalDate;
@@ -65,8 +66,8 @@ public class DefectResourceIntTest {
     private static final Priority DEFAULT_PRIORITY = Priority.MINOR;
     private static final Priority UPDATED_PRIORITY = Priority.MAJOR;
 
-    private static final LocalDate DEFAULT_REGISTRED = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_REGISTRED = LocalDate.now(ZoneId.systemDefault());
+    private static final LocalDate DEFAULT_RECORDED = LocalDate.ofEpochDay(0L);
+    private static final LocalDate UPDATED_RECORDED = LocalDate.now(ZoneId.systemDefault());
 
     private static final LocalDate DEFAULT_MODIFIED = LocalDate.ofEpochDay(0L);
     private static final LocalDate UPDATED_MODIFIED = LocalDate.now(ZoneId.systemDefault());
@@ -118,7 +119,7 @@ public class DefectResourceIntTest {
             .resolution(DEFAULT_RESOLUTION)
             .severity(DEFAULT_SEVERITY)
             .priority(DEFAULT_PRIORITY)
-            .registred(DEFAULT_REGISTRED)
+            .recorded(DEFAULT_RECORDED)
             .modified(DEFAULT_MODIFIED);
         return defect;
     }
@@ -151,7 +152,7 @@ public class DefectResourceIntTest {
         assertThat(testDefect.getResolution()).isEqualTo(DEFAULT_RESOLUTION);
         assertThat(testDefect.getSeverity()).isEqualTo(DEFAULT_SEVERITY);
         assertThat(testDefect.getPriority()).isEqualTo(DEFAULT_PRIORITY);
-        assertThat(testDefect.getRegistred()).isEqualTo(DEFAULT_REGISTRED);
+        assertThat(testDefect.getRecorded()).isEqualTo(DEFAULT_RECORDED);
         assertThat(testDefect.getModified()).isEqualTo(DEFAULT_MODIFIED);
 
         // Validate the Defect in Elasticsearch
@@ -196,7 +197,7 @@ public class DefectResourceIntTest {
             .andExpect(jsonPath("$.[*].resolution").value(hasItem(DEFAULT_RESOLUTION.toString())))
             .andExpect(jsonPath("$.[*].severity").value(hasItem(DEFAULT_SEVERITY.toString())))
             .andExpect(jsonPath("$.[*].priority").value(hasItem(DEFAULT_PRIORITY.toString())))
-            .andExpect(jsonPath("$.[*].registred").value(hasItem(DEFAULT_REGISTRED.toString())))
+            .andExpect(jsonPath("$.[*].recorded").value(hasItem(DEFAULT_RECORDED.toString())))
             .andExpect(jsonPath("$.[*].modified").value(hasItem(DEFAULT_MODIFIED.toString())));
     }
 
@@ -218,7 +219,7 @@ public class DefectResourceIntTest {
             .andExpect(jsonPath("$.resolution").value(DEFAULT_RESOLUTION.toString()))
             .andExpect(jsonPath("$.severity").value(DEFAULT_SEVERITY.toString()))
             .andExpect(jsonPath("$.priority").value(DEFAULT_PRIORITY.toString()))
-            .andExpect(jsonPath("$.registred").value(DEFAULT_REGISTRED.toString()))
+            .andExpect(jsonPath("$.recorded").value(DEFAULT_RECORDED.toString()))
             .andExpect(jsonPath("$.modified").value(DEFAULT_MODIFIED.toString()));
     }
 
@@ -248,7 +249,7 @@ public class DefectResourceIntTest {
             .resolution(UPDATED_RESOLUTION)
             .severity(UPDATED_SEVERITY)
             .priority(UPDATED_PRIORITY)
-            .registred(UPDATED_REGISTRED)
+            .recorded(UPDATED_RECORDED)
             .modified(UPDATED_MODIFIED);
 
         restDefectMockMvc.perform(put("/api/defects")
@@ -267,7 +268,7 @@ public class DefectResourceIntTest {
         assertThat(testDefect.getResolution()).isEqualTo(UPDATED_RESOLUTION);
         assertThat(testDefect.getSeverity()).isEqualTo(UPDATED_SEVERITY);
         assertThat(testDefect.getPriority()).isEqualTo(UPDATED_PRIORITY);
-        assertThat(testDefect.getRegistred()).isEqualTo(UPDATED_REGISTRED);
+        assertThat(testDefect.getRecorded()).isEqualTo(UPDATED_RECORDED);
         assertThat(testDefect.getModified()).isEqualTo(UPDATED_MODIFIED);
 
         // Validate the Defect in Elasticsearch
@@ -334,7 +335,7 @@ public class DefectResourceIntTest {
             .andExpect(jsonPath("$.[*].resolution").value(hasItem(DEFAULT_RESOLUTION.toString())))
             .andExpect(jsonPath("$.[*].severity").value(hasItem(DEFAULT_SEVERITY.toString())))
             .andExpect(jsonPath("$.[*].priority").value(hasItem(DEFAULT_PRIORITY.toString())))
-            .andExpect(jsonPath("$.[*].registred").value(hasItem(DEFAULT_REGISTRED.toString())))
+            .andExpect(jsonPath("$.[*].recorded").value(hasItem(DEFAULT_RECORDED.toString())))
             .andExpect(jsonPath("$.[*].modified").value(hasItem(DEFAULT_MODIFIED.toString())));
     }
 

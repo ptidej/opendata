@@ -22,11 +22,11 @@ export class DefectPopupService {
 
         if (id) {
             this.defectService.find(id).subscribe((defect) => {
-                if (defect.registred) {
-                    defect.registred = {
-                        year: defect.registred.getFullYear(),
-                        month: defect.registred.getMonth() + 1,
-                        day: defect.registred.getDate()
+                if (defect.recorded) {
+                    defect.recorded = {
+                        year: defect.recorded.getFullYear(),
+                        month: defect.recorded.getMonth() + 1,
+                        day: defect.recorded.getDate()
                     };
                 }
                 if (defect.modified) {

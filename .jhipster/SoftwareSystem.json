@@ -8,10 +8,28 @@
             "otherEntityRelationshipName": "softwareSystem"
         },
         {
+            "relationshipType": "one-to-many",
+            "relationshipName": "diary",
+            "otherEntityName": "diary",
+            "otherEntityRelationshipName": "softwareSystem"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "testCase",
+            "otherEntityName": "testCase",
+            "otherEntityRelationshipName": "softwareSystem"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "thinkAloud",
+            "otherEntityName": "thinkAloud",
+            "otherEntityRelationshipName": "softwareSystem"
+        },
+        {
             "relationshipType": "many-to-one",
             "relationshipName": "study",
             "otherEntityName": "study",
-            "otherEntityField": "tag"
+            "otherEntityField": "title"
         }
     ],
     "fields": [

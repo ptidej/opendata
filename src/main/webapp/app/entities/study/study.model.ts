@@ -1,5 +1,7 @@
 import { Developer } from '../developer';
 import { SoftwareSystem } from '../software-system';
+import { Script } from '../script';
+import { Task } from '../task';
 export class Study {
     constructor(
         public id?: number,
@@ -8,6 +10,8 @@ export class Study {
         public author?: string,
         public developer?: Developer,
         public softwareSystem?: SoftwareSystem,
+        public script?: Script,
+        public task?: Task,
     ) {
     }
 }

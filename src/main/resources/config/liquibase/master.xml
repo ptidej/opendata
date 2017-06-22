@@ -35,5 +35,7 @@
     <include file="classpath:config/liquibase/changelog/20170602231944_added_entity_constraints_InteractiveLog.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20170602231945_added_entity_constraints_SourceCode.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20170602231946_added_entity_constraints_DesignPattern.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170602231934_added_entity_constraints_Task.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170602231947_added_entity_constraints_Script.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

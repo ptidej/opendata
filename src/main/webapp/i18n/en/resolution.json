@@ -4,7 +4,8 @@
             "null": "",
             "NONE": "NONE",
             "FIXED": "FIXED",
-            "WONTFIX": "WONTFIX"
+            "WONTFIX": "WONTFIX",
+            "INVALID": "INVALID"
         }
     }
 }

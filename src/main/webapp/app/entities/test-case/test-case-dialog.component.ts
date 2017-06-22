@@ -40,19 +40,8 @@ export class TestCaseDialogComponent implements OnInit {
     ngOnInit() {
         this.isSaving = false;
         this.authorities = ['ROLE_USER', 'ROLE_ADMIN'];
-        this.softwareSystemService
-            .query({filter: 'testcase-is-null'})
-            .subscribe((res: ResponseWrapper) => {
-                if (!this.testCase.softwareSystem || !this.testCase.softwareSystem.id) {
-                    this.softwaresystems = res.json;
-                } else {
-                    this.softwareSystemService
-                        .find(this.testCase.softwareSystem.id)
-                        .subscribe((subRes: SoftwareSystem) => {
-                            this.softwaresystems = [subRes].concat(res.json);
-                        }, (subRes: ResponseWrapper) => this.onError(subRes.json));
-                }
-            }, (res: ResponseWrapper) => this.onError(res.json));
+        this.softwareSystemService.query()
+            .subscribe((res: ResponseWrapper) => { this.softwaresystems = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
         this.developerService.query()
             .subscribe((res: ResponseWrapper) => { this.developers = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
     }

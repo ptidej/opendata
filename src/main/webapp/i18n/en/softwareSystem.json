@@ -18,6 +18,9 @@
             },
             "tag": "Tag",
             "sourceCode": "Source Code",
+            "diary": "Diary",
+            "testCase": "Test Case",
+            "thinkAloud": "Think Aloud",
             "study": "Study"
         }
     }

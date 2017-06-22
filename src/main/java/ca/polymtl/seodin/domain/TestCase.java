@@ -35,8 +35,7 @@ public class TestCase implements Serializable {
     @Column(name = "status")
     private ArtifactStatus status;
 
-    @OneToOne
-    @JoinColumn(unique = true)
+    @ManyToOne
     private SoftwareSystem softwareSystem;
 
     @ManyToOne

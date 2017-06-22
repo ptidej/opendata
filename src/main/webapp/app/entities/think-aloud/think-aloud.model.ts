@@ -1,16 +1,15 @@
-import { SoftwareSystem } from '../software-system';
 import { Note } from '../note';
 import { Video } from '../video';
+import { SoftwareSystem } from '../software-system';
 import { Developer } from '../developer';
 export class ThinkAloud {
     constructor(
         public id?: number,
         public tag?: string,
         public description?: string,
-        public registred?: any,
-        public softwareSystem?: SoftwareSystem,
         public note?: Note,
         public video?: Video,
+        public softwareSystem?: SoftwareSystem,
         public developer?: Developer,
     ) {
     }

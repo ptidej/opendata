@@ -34,7 +34,7 @@
             <th><span jhiTranslate="seodinApp.interactiveLog.sourceHandle">Source Handle</span></th>
             <th><span jhiTranslate="seodinApp.interactiveLog.origin">Origin</span></th>
             <th><span jhiTranslate="seodinApp.interactiveLog.delta">Delta</span></th>
-            <th><span jhiTranslate="seodinApp.interactiveLog.registred">Registred</span></th>
+            <th><span jhiTranslate="seodinApp.interactiveLog.recorded">Recorded</span></th>
             <th><span jhiTranslate="seodinApp.interactiveLog.status">Status</span></th>
             <th><span jhiTranslate="seodinApp.interactiveLog.developer">Developer</span></th>
             <th></th>
@@ -47,7 +47,7 @@
                 <td>{{interactiveLog.sourceHandle}}</td>
                 <td>{{interactiveLog.origin}}</td>
                 <td>{{interactiveLog.delta}}</td>
-                <td>{{interactiveLog.registred | date:'mediumDate'}}</td>
+                <td>{{interactiveLog.recorded | date:'mediumDate'}}</td>
                 <td jhiTranslate="{{'seodinApp.ArtifactStatus.' + interactiveLog.status}}">{{interactiveLog.status}}</td>
                 <td>
                     <div *ngIf="interactiveLog.developer">

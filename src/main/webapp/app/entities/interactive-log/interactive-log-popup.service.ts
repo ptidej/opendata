@@ -22,11 +22,11 @@ export class InteractiveLogPopupService {
 
         if (id) {
             this.interactiveLogService.find(id).subscribe((interactiveLog) => {
-                if (interactiveLog.registred) {
-                    interactiveLog.registred = {
-                        year: interactiveLog.registred.getFullYear(),
-                        month: interactiveLog.registred.getMonth() + 1,
-                        day: interactiveLog.registred.getDate()
+                if (interactiveLog.recorded) {
+                    interactiveLog.recorded = {
+                        year: interactiveLog.recorded.getFullYear(),
+                        month: interactiveLog.recorded.getMonth() + 1,
+                        day: interactiveLog.recorded.getDate()
                     };
                 }
                 this.interactiveLogModalRef(component, interactiveLog);

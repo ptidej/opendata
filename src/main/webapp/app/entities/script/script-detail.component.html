@@ -20,6 +20,12 @@
         <dd>
             <span jhiTranslate="{{'seodinApp.ArtifactStatus.' + script.status}}">{{script.status}}</span>
         </dd>
+        <dt><span jhiTranslate="seodinApp.script.study">Study</span></dt>
+        <dd>
+            <div *ngIf="script.study">
+                <a [routerLink]="['/study', script.study?.id]">{{script.study?.title}}</a>
+            </div>
+        </dd>
     </dl>
 
     <button type="submit"

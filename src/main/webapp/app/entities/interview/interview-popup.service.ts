@@ -22,13 +22,6 @@ export class InterviewPopupService {
 
         if (id) {
             this.interviewService.find(id).subscribe((interview) => {
-                if (interview.registred) {
-                    interview.registred = {
-                        year: interview.registred.getFullYear(),
-                        month: interview.registred.getMonth() + 1,
-                        day: interview.registred.getDate()
-                    };
-                }
                 this.interviewModalRef(component, interview);
             });
         } else {

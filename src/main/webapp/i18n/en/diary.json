@@ -17,10 +17,9 @@
                 "title": "Diary"
             },
             "uri": "Uri",
-            "registred": "Registred",
             "status": "Status",
-            "task": "Task",
             "softwareSystem": "Software System",
+            "task": "Task",
             "developer": "Developer"
         }
     }

@@ -42,6 +42,10 @@
                 <constraints nullable="true" />
             </column>
 
+            <column name="recorded" type="date">
+                <constraints nullable="true" />
+            </column>
+
             <column name="interview_id" type="bigint">
                 <constraints nullable="true" />
             </column>

@@ -12,6 +12,18 @@
             "relationshipName": "softwareSystem",
             "otherEntityName": "softwareSystem",
             "otherEntityRelationshipName": "study"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "script",
+            "otherEntityName": "script",
+            "otherEntityRelationshipName": "study"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "task",
+            "otherEntityName": "task",
+            "otherEntityRelationshipName": "study"
         }
     ],
     "fields": [

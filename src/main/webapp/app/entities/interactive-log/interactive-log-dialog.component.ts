@@ -23,7 +23,7 @@ export class InteractiveLogDialogComponent implements OnInit {
     isSaving: boolean;
 
     developers: Developer[];
-    registredDp: any;
+    recordedDp: any;
 
     constructor(
         public activeModal: NgbActiveModal,

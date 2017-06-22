@@ -20,7 +20,7 @@ export class InteractiveLog {
         public sourceHandle?: string,
         public origin?: string,
         public delta?: string,
-        public registred?: any,
+        public recorded?: any,
         public status?: ArtifactStatus,
         public developer?: Developer,
     ) {

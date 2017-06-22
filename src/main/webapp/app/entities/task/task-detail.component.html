@@ -8,6 +8,12 @@
         <dd>
             <span>{{task.tag}}</span>
         </dd>
+        <dt><span jhiTranslate="seodinApp.task.study">Study</span></dt>
+        <dd>
+            <div *ngIf="task.study">
+                <a [routerLink]="['/study', task.study?.id]">{{task.study?.title}}</a>
+            </div>
+        </dd>
     </dl>
 
     <button type="submit"

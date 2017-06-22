@@ -23,6 +23,7 @@ export class AudioDialogComponent implements OnInit {
     isSaving: boolean;
 
     interviews: Interview[];
+    recordedDp: any;
 
     constructor(
         public activeModal: NgbActiveModal,

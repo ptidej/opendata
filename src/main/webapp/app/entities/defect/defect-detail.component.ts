@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Rx';
-import { EventManager  } from 'ng-jhipster';
+import { EventManager , DataUtils } from 'ng-jhipster';
 
 import { Defect } from './defect.model';
 import { DefectService } from './defect.service';
@@ -18,6 +18,7 @@ export class DefectDetailComponent implements OnInit, OnDestroy {
 
     constructor(
         private eventManager: EventManager,
+        private dataUtils: DataUtils,
         private defectService: DefectService,
         private route: ActivatedRoute
     ) {
@@ -34,6 +35,13 @@ export class DefectDetailComponent implements OnInit, OnDestroy {
         this.defectService.find(id).subscribe((defect) => {
             this.defect = defect;
         });
+    }
+    byteSize(field) {
+        return this.dataUtils.byteSize(field);
+    }
+
+    openFile(contentType, field) {
+        return this.dataUtils.openFile(contentType, field);
     }
     previousState() {
         window.history.back();

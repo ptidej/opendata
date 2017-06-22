@@ -18,10 +18,9 @@
             },
             "tag": "Tag",
             "description": "Description",
-            "registred": "Registred",
-            "softwareSystem": "Software System",
             "note": "Note",
             "video": "Video",
+            "softwareSystem": "Software System",
             "developer": "Developer"
         }
     }

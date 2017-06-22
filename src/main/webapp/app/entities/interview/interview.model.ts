@@ -7,7 +7,6 @@ export class Interview {
         public id?: number,
         public tag?: string,
         public description?: string,
-        public registred?: any,
         public audio?: Audio,
         public video?: Video,
         public note?: Note,

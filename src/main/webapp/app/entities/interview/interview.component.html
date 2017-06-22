@@ -32,7 +32,6 @@
             <th><span jhiTranslate="global.field.id">ID</span></th>
             <th><span jhiTranslate="seodinApp.interview.tag">Tag</span></th>
             <th><span jhiTranslate="seodinApp.interview.description">Description</span></th>
-            <th><span jhiTranslate="seodinApp.interview.registred">Registred</span></th>
             <th><span jhiTranslate="seodinApp.interview.developer">Developer</span></th>
             <th></th>
             </tr>
@@ -42,7 +41,6 @@
                 <td><a [routerLink]="['../interview', interview.id ]">{{interview.id}}</a></td>
                 <td>{{interview.tag}}</td>
                 <td>{{interview.description}}</td>
-                <td>{{interview.registred | date:'mediumDate'}}</td>
                 <td>
                     <div *ngIf="interview.developer">
                         <a [routerLink]="['../developer', interview.developer?.id ]" >{{interview.developer?.name}}</a>

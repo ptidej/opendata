@@ -9,7 +9,8 @@ const enum ArtifactStatus {
 const enum Resolution {
     'NONE',
     'FIXED',
-    'WONTFIX'
+    'WONTFIX',
+    'INVALID'
 
 };
 
@@ -21,7 +22,8 @@ const enum Severity {
 const enum Priority {
     'MINOR',
     'MAJOR',
-    'CRITICAL'
+    'CRITICAL',
+    'BLOCKER'
 
 };
 import { Developer } from '../developer';
@@ -30,12 +32,12 @@ export class Defect {
         public id?: number,
         public ticket?: string,
         public summary?: string,
-        public description?: string,
+        public description?: any,
         public status?: ArtifactStatus,
         public resolution?: Resolution,
         public severity?: Severity,
         public priority?: Priority,
-        public registred?: any,
+        public recorded?: any,
         public modified?: any,
         public developer?: Developer,
     ) {

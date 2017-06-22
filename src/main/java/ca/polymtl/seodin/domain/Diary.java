@@ -6,7 +6,6 @@ import org.springframework.data.elasticsearch.annotations.Document;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.util.Objects;
 
 import ca.polymtl.seodin.domain.enumeration.ArtifactStatus;
@@ -29,20 +28,15 @@ public class Diary implements Serializable {
     @Column(name = "uri")
     private String uri;
 
-    @Column(name = "registred")
-    private LocalDate registred;
-
     @Enumerated(EnumType.STRING)
     @Column(name = "status")
     private ArtifactStatus status;
 
-    @OneToOne
-    @JoinColumn(unique = true)
-    private Task task;
-
-    @OneToOne
-    @JoinColumn(unique = true)
+    @ManyToOne
     private SoftwareSystem softwareSystem;
+
+    @ManyToOne
+    private Task task;
 
     @ManyToOne
     private Developer developer;
@@ -68,19 +62,6 @@ public class Diary implements Serializable {
         this.uri = uri;
     }
 
-    public LocalDate getRegistred() {
-        return registred;
-    }
-
-    public Diary registred(LocalDate registred) {
-        this.registred = registred;
-        return this;
-    }
-
-    public void setRegistred(LocalDate registred) {
-        this.registred = registred;
-    }
-
     public ArtifactStatus getStatus() {
         return status;
     }
@@ -94,19 +75,6 @@ public class Diary implements Serializable {
         this.status = status;
     }
 
-    public Task getTask() {
-        return task;
-    }
-
-    public Diary task(Task task) {
-        this.task = task;
-        return this;
-    }
-
-    public void setTask(Task task) {
-        this.task = task;
-    }
-
     public SoftwareSystem getSoftwareSystem() {
         return softwareSystem;
     }
@@ -118,6 +86,19 @@ public class Diary implements Serializable {
 
     public void setSoftwareSystem(SoftwareSystem softwareSystem) {
         this.softwareSystem = softwareSystem;
+    }
+
+    public Task getTask() {
+        return task;
+    }
+
+    public Diary task(Task task) {
+        this.task = task;
+        return this;
+    }
+
+    public void setTask(Task task) {
+        this.task = task;
     }
 
     public Developer getDeveloper() {
@@ -158,7 +139,6 @@ public class Diary implements Serializable {
         return "Diary{" +
             "id=" + getId() +
             ", uri='" + getUri() + "'" +
-            ", registred='" + getRegistred() + "'" +
             ", status='" + getStatus() + "'" +
             "}";
     }

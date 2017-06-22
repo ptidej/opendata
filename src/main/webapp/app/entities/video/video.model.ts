@@ -15,6 +15,7 @@ export class Video {
         public duration?: number,
         public uri?: string,
         public status?: ArtifactStatus,
+        public recorded?: any,
         public interview?: Interview,
         public thinkaloud?: ThinkAloud,
     ) {

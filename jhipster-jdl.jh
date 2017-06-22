@@ -60,7 +60,7 @@ entity Note {
 entity Defect {
 	ticket String
     summary String
-    description Text
+    description TextBlob
     status DefectStatus
     resolution Resolution
     severity Severity

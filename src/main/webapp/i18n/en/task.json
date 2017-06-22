@@ -16,7 +16,9 @@
             "detail": {
                 "title": "Task"
             },
-            "tag": "Tag"
+            "tag": "Tag",
+            "diary": "Diary",
+            "study": "Study"
         }
     }
 }

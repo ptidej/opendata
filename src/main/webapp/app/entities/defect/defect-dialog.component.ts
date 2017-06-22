@@ -4,7 +4,7 @@ import { Response } from '@angular/http';
 
 import { Observable } from 'rxjs/Rx';
 import { NgbActiveModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
-import { EventManager, AlertService } from 'ng-jhipster';
+import { EventManager, AlertService, DataUtils } from 'ng-jhipster';
 
 import { Defect } from './defect.model';
 import { DefectPopupService } from './defect-popup.service';
@@ -23,11 +23,12 @@ export class DefectDialogComponent implements OnInit {
     isSaving: boolean;
 
     developers: Developer[];
-    registredDp: any;
+    recordedDp: any;
     modifiedDp: any;
 
     constructor(
         public activeModal: NgbActiveModal,
+        private dataUtils: DataUtils,
         private alertService: AlertService,
         private defectService: DefectService,
         private developerService: DeveloperService,
@@ -40,6 +41,27 @@ export class DefectDialogComponent implements OnInit {
         this.authorities = ['ROLE_USER', 'ROLE_ADMIN'];
         this.developerService.query()
             .subscribe((res: ResponseWrapper) => { this.developers = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
+    }
+
+    byteSize(field) {
+        return this.dataUtils.byteSize(field);
+    }
+
+    openFile(contentType, field) {
+        return this.dataUtils.openFile(contentType, field);
+    }
+
+    setFileData(event, defect, field, isImage) {
+        if (event && event.target.files && event.target.files[0]) {
+            const file = event.target.files[0];
+            if (isImage && !/^image\//.test(file.type)) {
+                return;
+            }
+            this.dataUtils.toBase64(file, (base64Data) => {
+                defect[field] = base64Data;
+                defect[`${field}ContentType`] = file.type;
+            });
+        }
     }
 
     clear() {

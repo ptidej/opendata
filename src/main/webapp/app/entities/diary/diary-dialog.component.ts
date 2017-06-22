@@ -9,8 +9,8 @@ import { EventManager, AlertService } from 'ng-jhipster';
 import { Diary } from './diary.model';
 import { DiaryPopupService } from './diary-popup.service';
 import { DiaryService } from './diary.service';
-import { Task, TaskService } from '../task';
 import { SoftwareSystem, SoftwareSystemService } from '../software-system';
+import { Task, TaskService } from '../task';
 import { Developer, DeveloperService } from '../developer';
 import { ResponseWrapper } from '../../shared';
 
@@ -24,19 +24,18 @@ export class DiaryDialogComponent implements OnInit {
     authorities: any[];
     isSaving: boolean;
 
-    tasks: Task[];
-
     softwaresystems: SoftwareSystem[];
 
+    tasks: Task[];
+
     developers: Developer[];
-    registredDp: any;
 
     constructor(
         public activeModal: NgbActiveModal,
         private alertService: AlertService,
         private diaryService: DiaryService,
-        private taskService: TaskService,
         private softwareSystemService: SoftwareSystemService,
+        private taskService: TaskService,
         private developerService: DeveloperService,
         private eventManager: EventManager
     ) {
@@ -45,32 +44,10 @@ export class DiaryDialogComponent implements OnInit {
     ngOnInit() {
         this.isSaving = false;
         this.authorities = ['ROLE_USER', 'ROLE_ADMIN'];
-        this.taskService
-            .query({filter: 'diary-is-null'})
-            .subscribe((res: ResponseWrapper) => {
-                if (!this.diary.task || !this.diary.task.id) {
-                    this.tasks = res.json;
-                } else {
-                    this.taskService
-                        .find(this.diary.task.id)
-                        .subscribe((subRes: Task) => {
-                            this.tasks = [subRes].concat(res.json);
-                        }, (subRes: ResponseWrapper) => this.onError(subRes.json));
-                }
-            }, (res: ResponseWrapper) => this.onError(res.json));
-        this.softwareSystemService
-            .query({filter: 'diary-is-null'})
-            .subscribe((res: ResponseWrapper) => {
-                if (!this.diary.softwareSystem || !this.diary.softwareSystem.id) {
-                    this.softwaresystems = res.json;
-                } else {
-                    this.softwareSystemService
-                        .find(this.diary.softwareSystem.id)
-                        .subscribe((subRes: SoftwareSystem) => {
-                            this.softwaresystems = [subRes].concat(res.json);
-                        }, (subRes: ResponseWrapper) => this.onError(subRes.json));
-                }
-            }, (res: ResponseWrapper) => this.onError(res.json));
+        this.softwareSystemService.query()
+            .subscribe((res: ResponseWrapper) => { this.softwaresystems = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
+        this.taskService.query()
+            .subscribe((res: ResponseWrapper) => { this.tasks = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
         this.developerService.query()
             .subscribe((res: ResponseWrapper) => { this.developers = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
     }
@@ -120,11 +97,11 @@ export class DiaryDialogComponent implements OnInit {
         this.alertService.error(error.message, null, null);
     }
 
-    trackTaskById(index: number, item: Task) {
+    trackSoftwareSystemById(index: number, item: SoftwareSystem) {
         return item.id;
     }
 
-    trackSoftwareSystemById(index: number, item: SoftwareSystem) {
+    trackTaskById(index: number, item: Task) {
         return item.id;
     }
 

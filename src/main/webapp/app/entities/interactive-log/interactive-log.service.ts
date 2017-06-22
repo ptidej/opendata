@@ -65,14 +65,14 @@ export class InteractiveLogService {
     }
 
     private convertItemFromServer(entity: any) {
-        entity.registred = this.dateUtils
-            .convertLocalDateFromServer(entity.registred);
+        entity.recorded = this.dateUtils
+            .convertLocalDateFromServer(entity.recorded);
     }
 
     private convert(interactiveLog: InteractiveLog): InteractiveLog {
         const copy: InteractiveLog = Object.assign({}, interactiveLog);
-        copy.registred = this.dateUtils
-            .convertLocalDateToServer(interactiveLog.registred);
+        copy.recorded = this.dateUtils
+            .convertLocalDateToServer(interactiveLog.recorded);
         return copy;
     }
 }

@@ -38,7 +38,7 @@
                 <constraints nullable="true" />
             </column>
 
-            <column name="registred" type="date">
+            <column name="recorded" type="date">
                 <constraints nullable="true" />
             </column>
 
