@@ -60,7 +60,7 @@ entity Note {
 entity Defect {
 	ticket String
     summary String
-    description String
+    description Text
     status DefectStatus
     resolution Resolution
     severity Severity
@@ -110,6 +110,10 @@ relationship OneToMany {
     Study to Script{study(title)},
     Study to Task{study(title)},
     SoftwareSystem to SourceCode{softwareSystem(tag)},
+    SoftwareSystem to Diary{softwareSystem(tag)},
+    Task to Diary{task(tag)},
+    SoftwareSystem to TestCase{softwareSystem(tag)},
+    SoftwareSystem to ThinkAloud{softwareSystem(tag)},
     SourceCode to DesignPattern{SourceCode(tag)},
     Developer to Interview{developer(name)},
     Developer to Diary{developer(name)},
@@ -123,12 +127,6 @@ relationship OneToMany {
     ThinkAloud to Note{thinkaloud(tag)},
     ThinkAloud to Video{thinkaloud(tag)}
 }
-relationship OneToOne {
-	Diary{task(tag)} to Task,
-	Diary{softwareSystem(tag)} to SoftwareSystem,
-    TestCase{softwareSystem(tag)} to SoftwareSystem,
-    ThinkAloud{softwareSystem(tag)} to SoftwareSystem
-}
 
 enum LogKind {
     SELECTION, COMMAND, PREFERENCE
@@ -139,7 +137,7 @@ enum DefectStatus {
 }
 
 enum Priority {
-    MINOR, MAJOR, CRITICAL
+    MINOR, MAJOR, CRITICAL, BLOCKER
 }
 
 enum Severity {
@@ -147,7 +145,7 @@ enum Severity {
 }
 
 enum Resolution {
-    NONE, FIXED, WONTFIX
+    NONE, FIXED, WONTFIX, INVALID
 }
 
 enum ArtifactStatus {
