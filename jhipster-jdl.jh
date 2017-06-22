@@ -110,6 +110,10 @@ relationship OneToMany {
     Study to Script{study(title)},
     Study to Task{study(title)},
     SoftwareSystem to SourceCode{softwareSystem(tag)},
+    SoftwareSystem to Diary{softwareSystem(tag)},
+    Task to Diary{task(tag)},
+    SoftwareSystem to TestCase{softwareSystem(tag)},
+    SoftwareSystem to ThinkAloud{softwareSystem(tag)},
     SourceCode to DesignPattern{SourceCode(tag)},
     Developer to Interview{developer(name)},
     Developer to Diary{developer(name)},
@@ -122,12 +126,6 @@ relationship OneToMany {
     Interview to Note{interview(tag)},
     ThinkAloud to Note{thinkaloud(tag)},
     ThinkAloud to Video{thinkaloud(tag)}
-}
-relationship OneToOne {
-	Diary{task(tag)} to Task,
-	Diary{softwareSystem(tag)} to SoftwareSystem,
-    TestCase{softwareSystem(tag)} to SoftwareSystem,
-    ThinkAloud{softwareSystem(tag)} to SoftwareSystem
 }
 
 enum LogKind {
