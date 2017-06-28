@@ -1,0 +1,10 @@
+{
+    "seodinApp": {
+        "LogKind" : {
+            "null": "",
+            "SELECTION": "SELECTION",
+            "COMMAND": "COMMAND",
+            "PREFERENCE": "PREFERENCE"
+        }
+    }
+}
