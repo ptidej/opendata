@@ -93,6 +93,7 @@ entity SourceCode {
 
 entity DesignPattern {
 	tag String
+    author String
     xmlDescriptor String
     status ArtifactStatus
 }
