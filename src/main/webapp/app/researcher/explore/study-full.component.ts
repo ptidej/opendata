@@ -52,6 +52,7 @@ export class StudyFullComponent implements OnInit, OnDestroy {
     expandNotes: Boolean;
     expandDeveloper: Boolean;
     expandInterview: Boolean;
+    expandThinkAloud: Boolean;
 
     private subscription: Subscription;
     private eventSubscriber: Subscription;
@@ -85,6 +86,7 @@ export class StudyFullComponent implements OnInit, OnDestroy {
         this.expandInterviews = true;
         this.expandDeveloper = true;
         this.expandInterview = true;
+        this.expandThinkAloud = true;
     }
 
     load(id) {
@@ -280,8 +282,8 @@ export class StudyFullComponent implements OnInit, OnDestroy {
         }
     }
 
-    toggleAudios(InterviewTag) {
-        // this.loadAudios(InterviewTag);
+    toggleAudios(tag) {
+        this.loadAudios(tag);
         if (this.expandAudios) {
             this.expandAudios = false;
         } else {
@@ -289,8 +291,8 @@ export class StudyFullComponent implements OnInit, OnDestroy {
         }
     }
 
-    toggleVideos(InterviewTag) {
-        // this.loadVideos(InterviewTag);
+    toggleVideos(tag) {
+        this.loadVideos(tag);
         if (this.expandVideos) {
             this.expandVideos = false;
         } else {
@@ -298,8 +300,8 @@ export class StudyFullComponent implements OnInit, OnDestroy {
         }
     }
 
-    toggleNotes(InterviewTag) {
-        // this.loadNotes(InterviewTag);
+    toggleNotes(tag) {
+        this.loadNotes(tag);
         if (this.expandNotes) {
             this.expandNotes = false;
         } else {
@@ -320,6 +322,14 @@ export class StudyFullComponent implements OnInit, OnDestroy {
             this.expandInterview = false;
         } else {
             this.expandInterview = true;
+        }
+    }
+
+    expandCollapseThinkAloud(ThinkAloudTag) {
+        if (this.expandThinkAloud) {
+            this.expandThinkAloud = false;
+        } else {
+            this.expandThinkAloud = true;
         }
     }
 }
