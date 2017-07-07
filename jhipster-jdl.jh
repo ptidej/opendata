@@ -130,7 +130,7 @@ relationship OneToMany {
 }
 
 enum LogKind {
-    SELECTION, COMMAND, PREFERENCE
+    SELECTION, COMMAND, PREFERENCE, EDIT
 }
 
 enum DefectStatus {
