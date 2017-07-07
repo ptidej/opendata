@@ -281,7 +281,7 @@ export class StudyFullComponent implements OnInit, OnDestroy {
     }
 
     toggleAudios(InterviewTag) {
-        // this.loadAudios(InterviewTag);
+        this.loadAudios(InterviewTag);
         if (this.expandAudios) {
             this.expandAudios = false;
         } else {
@@ -290,7 +290,7 @@ export class StudyFullComponent implements OnInit, OnDestroy {
     }
 
     toggleVideos(InterviewTag) {
-        // this.loadVideos(InterviewTag);
+        this.loadVideos(InterviewTag);
         if (this.expandVideos) {
             this.expandVideos = false;
         } else {
@@ -299,7 +299,7 @@ export class StudyFullComponent implements OnInit, OnDestroy {
     }
 
     toggleNotes(InterviewTag) {
-        // this.loadNotes(InterviewTag);
+        this.loadNotes(InterviewTag);
         if (this.expandNotes) {
             this.expandNotes = false;
         } else {
