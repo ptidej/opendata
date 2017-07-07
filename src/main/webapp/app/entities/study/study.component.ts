@@ -59,6 +59,7 @@ studies: Study[];
         this.currentSearch = '';
         this.loadAll();
     }
+
     ngOnInit() {
         this.loadAll();
         this.principal.identity().then((account) => {
