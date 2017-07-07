@@ -93,7 +93,6 @@ entity SourceCode {
 
 entity DesignPattern {
 	tag String
-    author String
     xmlDescriptor String
     status ArtifactStatus
 }
@@ -134,11 +133,11 @@ enum LogKind {
 }
 
 enum DefectStatus {
-    CLOSED, NEW, REOPENED
+    CLOSED, NEW
 }
 
 enum Priority {
-    MINOR, MAJOR, CRITICAL, TRIVIAL, BLOCKER
+    MINOR, MAJOR, CRITICAL, BLOCKER
 }
 
 enum Severity {
@@ -146,7 +145,7 @@ enum Severity {
 }
 
 enum Resolution {
-    NONE, FIXED, WONTFIX, DUPLICATE, INVALID
+    NONE, FIXED, WONTFIX, INVALID
 }
 
 enum ArtifactStatus {
