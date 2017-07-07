@@ -1,9 +1,10 @@
 package ca.polymtl.seodin.web.rest;
 
+import ca.polymtl.seodin.repository.*;
+import ca.polymtl.seodin.service.dto.StudyDTO;
 import com.codahale.metrics.annotation.Timed;
 import ca.polymtl.seodin.domain.Study;
 
-import ca.polymtl.seodin.repository.StudyRepository;
 import ca.polymtl.seodin.repository.search.StudySearchRepository;
 import ca.polymtl.seodin.web.rest.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
@@ -38,9 +39,40 @@ public class StudyResource {
 
     private final StudySearchRepository studySearchRepository;
 
-    public StudyResource(StudyRepository studyRepository, StudySearchRepository studySearchRepository) {
+    private final DeveloperRepository developerRepository;
+    private final SoftwareSystemRepository softwareSystemRepository;
+    private final InterviewRepository interviewRepository;
+    private final ThinkAloudRepository thinkAloudRepository;
+    private final DiaryRepository diaryRepository;
+    private final DefectRepository defectRepository;
+    private final TestCaseRepository testCaseRepository;
+    private final InteractiveLogRepository interactiveLogRepository;
+    private final SourceCodeRepository sourceCodeRepository;
+    private final DesignPatternRepository designPatternRepository;
+    private final NoteRepository noteRepository;
+    private final ScriptRepository scriptRepository;
+    private final AudioRepository audioRepository;
+    private final VideoRepository videoRepository;
+    private final TaskRepository taskRepository;
+
+    public StudyResource(StudyRepository studyRepository, StudySearchRepository studySearchRepository, DeveloperRepository developerRepository, SoftwareSystemRepository softwareSystemRepository, InterviewRepository interviewRepository, ThinkAloudRepository thinkAloudRepository, DiaryRepository diaryRepository, DefectRepository defectRepository, TestCaseRepository testCaseRepository, InteractiveLogRepository interactiveLogRepository, SourceCodeRepository sourceCodeRepository, DesignPatternRepository designPatternRepository, NoteRepository noteRepository, ScriptRepository scriptRepository, AudioRepository audioRepository, VideoRepository videoRepository, TaskRepository taskRepository) {
         this.studyRepository = studyRepository;
         this.studySearchRepository = studySearchRepository;
+        this.developerRepository = developerRepository;
+        this.softwareSystemRepository = softwareSystemRepository;
+        this.interviewRepository = interviewRepository;
+        this.thinkAloudRepository = thinkAloudRepository;
+        this.diaryRepository = diaryRepository;
+        this.defectRepository = defectRepository;
+        this.testCaseRepository = testCaseRepository;
+        this.interactiveLogRepository = interactiveLogRepository;
+        this.sourceCodeRepository = sourceCodeRepository;
+        this.designPatternRepository = designPatternRepository;
+        this.noteRepository = noteRepository;
+        this.scriptRepository = scriptRepository;
+        this.audioRepository = audioRepository;
+        this.videoRepository = videoRepository;
+        this.taskRepository = taskRepository;
     }
 
     /**
@@ -111,6 +143,21 @@ public class StudyResource {
         log.debug("REST request to get Study : {}", id);
         Study study = studyRepository.findOne(id);
         return ResponseUtil.wrapOrNotFound(Optional.ofNullable(study));
+    }
+
+    /**
+     * EXPORT  /studies/:id/export : export the "id" study.
+     *
+     * @param id the id of the study to retrieve
+     * @return the ResponseEntity with status 200 (OK) and with body the study, or with status 404 (Not Found)
+     */
+    @GetMapping("/studies/{id}/export")
+    @Timed
+    public ResponseEntity<StudyDTO> exportStudy(@PathVariable Long id) {
+        log.debug("REST request to export Study : {}", id);
+        Study study = studyRepository.findOne(id);
+        StudyDTO studyDTO = new StudyDTO(study, developerRepository, softwareSystemRepository, interviewRepository, thinkAloudRepository, diaryRepository, defectRepository, testCaseRepository, interactiveLogRepository, sourceCodeRepository, designPatternRepository, taskRepository, noteRepository, scriptRepository, audioRepository, videoRepository);
+        return ResponseUtil.wrapOrNotFound(Optional.ofNullable(studyDTO));
     }
 
     /**
