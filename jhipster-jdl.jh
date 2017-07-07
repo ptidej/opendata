@@ -2,33 +2,46 @@ entity Study {
 	title String required
     description String
     author String
+    license String
 }
 
 entity SoftwareSystem {
 	tag String
+    author String
+    license String
 }
 
 entity Task {
 	tag String
+    author String
+    license String
 }
 
 entity Developer {
 	name String required
+    author String
+    license String
 }
 
 entity Interview {
 	tag String
     description String
+    author String
+    license String
 }
 
 entity ThinkAloud {
 	tag String
     description String
+    author String
+    license String
 }
 
 entity Diary {
 	uri String
     status ArtifactStatus
+    author String
+    license String
 }
 
 
@@ -39,6 +52,8 @@ entity Audio {
     uri String
     status ArtifactStatus
     recorded LocalDate
+    author String
+    license String
 }
 
 entity Video {
@@ -48,6 +63,8 @@ entity Video {
     uri String
     status ArtifactStatus
     recorded LocalDate
+    author String
+    license String
 }
 
 entity Note {
@@ -55,6 +72,8 @@ entity Note {
     description String
     uri String
     status ArtifactStatus
+    author String
+    license String
 }
 
 entity Defect {
@@ -68,12 +87,16 @@ entity Defect {
     recorded LocalDate
     modified LocalDate
     status ArtifactStatus
+    author String
+    license String
 }
 
 entity TestCase {
 	tag String
 	uri String
     status ArtifactStatus
+    author String
+    license String
 }
 
 entity InteractiveLog {
@@ -83,12 +106,16 @@ entity InteractiveLog {
     delta String
     recorded LocalDate
     status ArtifactStatus
+    author String
+    license String
 }
 
 entity SourceCode {
 	tag String
 	uri String
     status ArtifactStatus
+    author String
+    license String
 }
 
 entity DesignPattern {
@@ -96,6 +123,8 @@ entity DesignPattern {
     author String
     xmlDescriptor String
     status ArtifactStatus
+    author String
+    license String
 }
 
 entity Script {
@@ -103,6 +132,8 @@ entity Script {
     description String
     sourceCode String
     status ArtifactStatus
+    author String
+    license String
 }
 
 relationship OneToMany {
