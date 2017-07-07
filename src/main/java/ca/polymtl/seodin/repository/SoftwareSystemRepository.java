@@ -1,9 +1,10 @@
 package ca.polymtl.seodin.repository;
 
 import ca.polymtl.seodin.domain.SoftwareSystem;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import org.springframework.data.jpa.repository.*;
+import java.util.List;
 
 
 /**
@@ -12,5 +13,7 @@ import org.springframework.data.jpa.repository.*;
 @SuppressWarnings("unused")
 @Repository
 public interface SoftwareSystemRepository extends JpaRepository<SoftwareSystem,Long> {
-    
+
+    List<SoftwareSystem> findAllByStudyTitle(String id);
+
 }

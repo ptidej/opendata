@@ -3,7 +3,7 @@ package ca.polymtl.seodin.web.rest;
 import ca.polymtl.seodin.SeodinApp;
 
 import ca.polymtl.seodin.domain.Study;
-import ca.polymtl.seodin.repository.StudyRepository;
+import ca.polymtl.seodin.repository.*;
 import ca.polymtl.seodin.repository.search.StudySearchRepository;
 import ca.polymtl.seodin.web.rest.errors.ExceptionTranslator;
 
@@ -49,6 +49,37 @@ public class StudyResourceIntTest {
 
     @Autowired
     private StudyRepository studyRepository;
+    @Autowired
+    private DeveloperRepository developerRepository;
+    @Autowired
+    private SoftwareSystemRepository softwareSystemRepository;
+    @Autowired
+    private InterviewRepository interviewRepository;
+    @Autowired
+    private ThinkAloudRepository thinkAloudRepository;
+    @Autowired
+    private DiaryRepository diaryRepository;
+    @Autowired
+    private DefectRepository defectRepository;
+    @Autowired
+    private TestCaseRepository testCaseRepository;
+    @Autowired
+    private InteractiveLogRepository interactiveLogRepository;
+    @Autowired
+    private SourceCodeRepository sourceCodeRepository;
+    @Autowired
+    private DesignPatternRepository designPatternRepository;
+    @Autowired
+    private TaskRepository taskRepository;
+    @Autowired
+    private ScriptRepository scriptRepository;
+    @Autowired
+    private NoteRepository noteRepository;
+    @Autowired
+    private AudioRepository audioRepository;
+    @Autowired
+    private VideoRepository videoRepository;
+
 
     @Autowired
     private StudySearchRepository studySearchRepository;
@@ -72,7 +103,7 @@ public class StudyResourceIntTest {
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        StudyResource studyResource = new StudyResource(studyRepository, studySearchRepository);
+        StudyResource studyResource = new StudyResource(studyRepository, studySearchRepository, developerRepository, softwareSystemRepository, interviewRepository, thinkAloudRepository, diaryRepository, defectRepository, testCaseRepository, interactiveLogRepository, sourceCodeRepository, designPatternRepository, noteRepository, scriptRepository, audioRepository, videoRepository, taskRepository);
         this.restStudyMockMvc = MockMvcBuilders.standaloneSetup(studyResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setControllerAdvice(exceptionTranslator)

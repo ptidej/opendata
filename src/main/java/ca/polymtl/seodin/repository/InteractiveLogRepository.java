@@ -1,9 +1,10 @@
 package ca.polymtl.seodin.repository;
 
 import ca.polymtl.seodin.domain.InteractiveLog;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import org.springframework.data.jpa.repository.*;
+import java.util.List;
 
 
 /**
@@ -12,5 +13,7 @@ import org.springframework.data.jpa.repository.*;
 @SuppressWarnings("unused")
 @Repository
 public interface InteractiveLogRepository extends JpaRepository<InteractiveLog,Long> {
-    
+
+    List<InteractiveLog> findAllByDeveloperName(String name);
+
 }
