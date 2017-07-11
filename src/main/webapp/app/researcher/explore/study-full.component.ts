@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs/Rx';
 import { EventManager, ParseLinks, PaginationUtil, JhiLanguageService, AlertService } from 'ng-jhipster';
 
 import { ITEMS_PER_PAGE, Principal, ResponseWrapper } from '../../shared';
+import { PaginationConfig } from '../../blocks/config/uib-pagination.config';
 
 import { Study } from '../../entities/study/study.model';
 import { StudyService } from '../../entities/study/study.service';
@@ -249,6 +250,10 @@ export class StudyFullComponent implements OnInit, OnDestroy {
     }
 
     toggleDevelopers() {
+        this.expandSoftwareSystems = true;
+        this.expandInterviews = true;
+        this.expandThinkAlouds = true;
+        this.expandDeveloper = true;
         if (this.expandDevelopers) {
             this.expandDevelopers = false;
         } else {
@@ -257,6 +262,10 @@ export class StudyFullComponent implements OnInit, OnDestroy {
     }
 
     toggleSoftwareSystems() {
+        this.expandDevelopers = true;
+        this.expandInterviews = true;
+        this.expandThinkAlouds = true;
+        this.expandDeveloper = true;
         if (this.expandSoftwareSystems) {
             this.expandSoftwareSystems = false;
         } else {
@@ -266,6 +275,7 @@ export class StudyFullComponent implements OnInit, OnDestroy {
 
     toggleInterviews(developerName) {
         this.loadInterviews(developerName);
+        this.expandThinkAlouds = true;
         if (this.expandInterviews) {
             this.expandInterviews = false;
         } else {
@@ -275,6 +285,7 @@ export class StudyFullComponent implements OnInit, OnDestroy {
 
     toggleThinkAlouds(developerName) {
         this.loadThinkAlouds(developerName);
+        this.expandInterviews = true;
         if (this.expandThinkAlouds) {
             this.expandThinkAlouds = false;
         } else {
@@ -282,34 +293,9 @@ export class StudyFullComponent implements OnInit, OnDestroy {
         }
     }
 
-    toggleAudios(tag) {
-        this.loadAudios(tag);
-        if (this.expandAudios) {
-            this.expandAudios = false;
-        } else {
-            this.expandAudios = true;
-        }
-    }
-
-    toggleVideos(tag) {
-        this.loadVideos(tag);
-        if (this.expandVideos) {
-            this.expandVideos = false;
-        } else {
-            this.expandVideos = true;
-        }
-    }
-
-    toggleNotes(tag) {
-        this.loadNotes(tag);
-        if (this.expandNotes) {
-            this.expandNotes = false;
-        } else {
-            this.expandNotes = true;
-        }
-    }
-
     expandCollapseDeveloper(developerName) {
+        this.expandInterviews = true;
+        this.expandThinkAlouds = true;
         if (this.expandDeveloper) {
             this.expandDeveloper = false;
         } else {

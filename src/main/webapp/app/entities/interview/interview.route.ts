@@ -8,6 +8,7 @@ import { InterviewComponent } from './interview.component';
 import { InterviewDetailComponent } from './interview-detail.component';
 import { InterviewPopupComponent } from './interview-dialog.component';
 import { InterviewDeletePopupComponent } from './interview-delete-dialog.component';
+import { InterviewSearchPopupComponent } from './interview-search-dialog.component';
 
 import { Principal } from '../../shared';
 
@@ -58,6 +59,16 @@ export const interviewPopupRoute: Routes = [
         data: {
             authorities: ['ROLE_USER'],
             pageTitle: 'seodinApp.interview.home.title'
+        },
+        canActivate: [UserRouteAccessService],
+        outlet: 'popup'
+    },
+    {
+        path: 'interview/:id/search',
+        component: InterviewSearchPopupComponent,
+        data: {
+        authorities: ['ROLE_USER'],
+        pageTitle: 'seodinApp.interview.home.title'
         },
         canActivate: [UserRouteAccessService],
         outlet: 'popup'

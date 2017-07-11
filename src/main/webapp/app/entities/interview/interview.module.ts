@@ -11,6 +11,8 @@ import {
     InterviewPopupComponent,
     InterviewDeletePopupComponent,
     InterviewDeleteDialogComponent,
+    InterviewSearchPopupComponent,
+    InterviewSearchDialogComponent,
     interviewRoute,
     interviewPopupRoute,
 } from './';
@@ -32,6 +34,8 @@ const ENTITY_STATES = [
         InterviewDeleteDialogComponent,
         InterviewPopupComponent,
         InterviewDeletePopupComponent,
+        InterviewSearchPopupComponent,
+        InterviewSearchDialogComponent,
     ],
     entryComponents: [
         InterviewComponent,
@@ -39,6 +43,8 @@ const ENTITY_STATES = [
         InterviewPopupComponent,
         InterviewDeleteDialogComponent,
         InterviewDeletePopupComponent,
+        InterviewSearchPopupComponent,
+        InterviewSearchDialogComponent,
     ],
     providers: [
         InterviewService,

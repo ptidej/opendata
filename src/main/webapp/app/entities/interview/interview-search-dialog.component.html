@@ -1,0 +1,108 @@
+<div class="modal-header">
+    <h4 class="modal-title">
+        <table><tr>
+            <th>&nbsp;</th>
+            <th><a (click)="expandVideos()">Videos</a></th>
+            <th>&nbsp;</th>
+            <th>&nbsp;</th>
+            <th>&nbsp;</th>
+            <th><a (click)="expandAudios()">Audios</a></th>
+            <th>&nbsp;</th>
+            <th>&nbsp;</th>
+            <th>&nbsp;</th>
+            <th><a (click)="expandNotes()">Notes</a></th>
+            <th>&nbsp;</th>
+        </tr></table>
+    </h4>
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+            (click)="clear()">&times;</button>
+</div>
+<div class="modal-body">
+    <div class="table-responsive" *ngIf="expandvideo">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th><span jhiTranslate="seodinApp.video.tag">Tag</span></th>
+                <th><span jhiTranslate="seodinApp.video.description">Description</span></th>
+                <th><span jhiTranslate="seodinApp.video.duration">Duration</span></th>
+                <th><span jhiTranslate="seodinApp.video.uri">Uri</span></th>
+                <th><span jhiTranslate="seodinApp.video.status">Status</span></th>
+                <th><span jhiTranslate="seodinApp.video.interview">Interview</span></th>
+                <th><span jhiTranslate="seodinApp.video.thinkaloud">Thinkaloud</span></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let video of videos ;trackBy: trackId">
+                <td>{{video.tag}}</td>
+                <td>{{video.description}}</td>
+                <td>{{video.duration}}</td>
+                <td><a href="javascript:void(0)">{{video.uri}}</a></td>
+                <td jhiTranslate="{{'seodinApp.ArtifactStatus.' + video.status}}">{{video.status}}</td>
+                <td>
+                    <div *ngIf="video.interview">
+                        {{video.interview?.tag}}
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="video.thinkaloud">
+                        {{video.thinkaloud?.tag}}
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="table-responsive" *ngIf="expandaudio">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th><span jhiTranslate="seodinApp.audio.tag">Tag</span></th>
+                <th><span jhiTranslate="seodinApp.audio.description">Description</span></th>
+                <th><span jhiTranslate="seodinApp.audio.duration">Duration</span></th>
+                <th><span jhiTranslate="seodinApp.audio.uri">Uri</span></th>
+                <th><span jhiTranslate="seodinApp.audio.status">Status</span></th>
+                <th><span jhiTranslate="seodinApp.audio.recorded">Recorded</span></th>
+                <th><span jhiTranslate="seodinApp.audio.interview">Interview</span></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let audio of audios ;trackBy: trackId">
+                <td>{{audio.tag}}</td>
+                <td>{{audio.description}}</td>
+                <td>{{audio.duration}}</td>
+                <td><a href="javascript:void(0)">{{audio.uri}}</a></td>
+                <td jhiTranslate="{{'seodinApp.ArtifactStatus.' + audio.status}}">{{audio.status}}</td>
+                <td>{{audio.recorded | date:'mediumDate'}}</td>
+                <td>{{audio.interview?.tag}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="table-responsive" *ngIf="expandnote">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th><span jhiTranslate="seodinApp.note.tag">Tag</span></th>
+                <th><span jhiTranslate="seodinApp.note.description">Description</span></th>
+                <th><span jhiTranslate="seodinApp.note.uri">Uri</span></th>
+                <th><span jhiTranslate="seodinApp.note.status">Status</span></th>
+                <th><span jhiTranslate="seodinApp.note.interview">Interview</span></th>
+                <th><span jhiTranslate="seodinApp.note.thinkaloud">Thinkaloud</span></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let note of notes ;trackBy: trackId">
+                <td>{{note.tag}}</td>
+                <td>{{note.description}}</td>
+                <td><a href="javascript:void(0)">{{note.uri}}</a></td>
+                <td jhiTranslate="{{'seodinApp.ArtifactStatus.' + note.status}}">{{note.status}}</td>
+                <td>{{note.interview?.tag}}</td>
+                <td>{{note.thinkaloud?.tag}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

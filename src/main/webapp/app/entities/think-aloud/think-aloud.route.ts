@@ -8,6 +8,7 @@ import { ThinkAloudComponent } from './think-aloud.component';
 import { ThinkAloudDetailComponent } from './think-aloud-detail.component';
 import { ThinkAloudPopupComponent } from './think-aloud-dialog.component';
 import { ThinkAloudDeletePopupComponent } from './think-aloud-delete-dialog.component';
+import { ThinkAloudSearchPopupComponent } from './think-aloud-search-dialog.component';
 
 import { Principal } from '../../shared';
 
@@ -58,6 +59,16 @@ export const thinkAloudPopupRoute: Routes = [
         data: {
             authorities: ['ROLE_USER'],
             pageTitle: 'seodinApp.thinkAloud.home.title'
+        },
+        canActivate: [UserRouteAccessService],
+        outlet: 'popup'
+    },
+    {
+        path: 'think-aloud/:id/search',
+        component: ThinkAloudSearchPopupComponent,
+        data: {
+            authorities: ['ROLE_USER'],
+            pageTitle: 'seodinApp.interview.home.title'
         },
         canActivate: [UserRouteAccessService],
         outlet: 'popup'

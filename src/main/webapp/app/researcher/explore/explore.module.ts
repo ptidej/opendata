@@ -19,11 +19,11 @@ const ENTITY_STATES = [
     ],
     declarations: [
         ExploreComponent,
-        StudyFullComponent,
+        StudyFullComponent
     ],
     entryComponents: [
         ExploreComponent,
-        StudyFullComponent,
+        StudyFullComponent
     ],
     providers: [
 

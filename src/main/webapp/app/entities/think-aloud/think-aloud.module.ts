@@ -11,6 +11,8 @@ import {
     ThinkAloudPopupComponent,
     ThinkAloudDeletePopupComponent,
     ThinkAloudDeleteDialogComponent,
+    ThinkAloudSearchPopupComponent,
+    ThinkAloudSearchDialogComponent,
     thinkAloudRoute,
     thinkAloudPopupRoute,
 } from './';
@@ -32,6 +34,8 @@ const ENTITY_STATES = [
         ThinkAloudDeleteDialogComponent,
         ThinkAloudPopupComponent,
         ThinkAloudDeletePopupComponent,
+        ThinkAloudSearchPopupComponent,
+        ThinkAloudSearchDialogComponent,
     ],
     entryComponents: [
         ThinkAloudComponent,
@@ -39,6 +43,8 @@ const ENTITY_STATES = [
         ThinkAloudPopupComponent,
         ThinkAloudDeleteDialogComponent,
         ThinkAloudDeletePopupComponent,
+        ThinkAloudSearchPopupComponent,
+        ThinkAloudSearchDialogComponent,
     ],
     providers: [
         ThinkAloudService,
