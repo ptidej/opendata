@@ -19,7 +19,7 @@ import { PaginationConfig } from '../../blocks/config/uib-pagination.config';
     selector: 'jhi-interview-search-dialog',
     templateUrl: './interview-search-dialog.component.html'
 })
-export class InterviewSearchDialogComponent {
+export class InterviewSearchDialogComponent implements OnInit, OnDestroy {
 
     videos: Video[];
     audios: Audio[];
