@@ -17,7 +17,7 @@ import { PaginationConfig } from '../../blocks/config/uib-pagination.config';
     selector: 'jhi-think-aloud-search-dialog',
     templateUrl: './think-aloud-search-dialog.component.html'
 })
-export class ThinkAloudSearchDialogComponent {
+export class ThinkAloudSearchDialogComponent implements OnInit, OnDestroy {
 
     videos: Video[];
     notes: Note[];
