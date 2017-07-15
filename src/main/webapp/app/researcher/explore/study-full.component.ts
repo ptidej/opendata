@@ -26,6 +26,9 @@ import { VideoService } from '../../entities/video/video.service';
 import { Audio } from '../../entities/audio/audio.model';
 import { AudioService } from '../../entities/audio/audio.service';
 
+import { Note } from '../../entities/note/note.model';
+import { NoteService } from '../../entities/note/note.service';
+
 @Component({
     selector: 'jhi-study-full',
     templateUrl: './study-full.component.html'
@@ -39,6 +42,16 @@ export class StudyFullComponent implements OnInit, OnDestroy {
     videos: Video[];
     interviews: Interview[];
     audios: Audio[];
+    notes: Note[];
+    expandSoftwareSystems: Boolean;
+    expandDevelopers: Boolean;
+    expandInterviews: Boolean;
+    expandThinkAlouds: Boolean;
+    expandVideos: Boolean;
+    expandAudios: Boolean;
+    expandNotes: Boolean;
+    expandDeveloper: Boolean;
+    expandInterview: Boolean;
 
     private subscription: Subscription;
     private eventSubscriber: Subscription;
@@ -52,6 +65,7 @@ export class StudyFullComponent implements OnInit, OnDestroy {
         private thinkAloudService: ThinkAloudService,
         private videoService: VideoService,
         private audioService: AudioService,
+        private noteService: NoteService,
         private alertService: AlertService,
         private route: ActivatedRoute
     ) {
@@ -62,23 +76,41 @@ export class StudyFullComponent implements OnInit, OnDestroy {
             this.load(params['id']);
         });
         this.registerChangeInStudies();
+        this.expandSoftwareSystems = true;
+        this.expandDevelopers = true;
+        this.expandThinkAlouds = true;
+        this.expandVideos = true;
+        this.expandAudios = true;
+        this.expandNotes = true;
+        this.expandInterviews = true;
+        this.expandDeveloper = true;
+        this.expandInterview = true;
     }
 
     load(id) {
         this.studyService.find(id).subscribe((study) => {
             this.study = study;
+            this.loadDevelopers(study.title);
+            this.loadSoftwareSystems(study.title);
         });
-
-        this.loadDevelopers(id);
-        this.loadSoftwareSystems(id);
-        this.loadInterviews(id);
         this.loadThinkAlouds(id);
+        this.loadInterviews(id);
         this.loadVideos(id);
         this.loadAudios(id);
+        this.loadNotes(id);
     }
 
     loadDevelopers(id) {
-      this.developerService.query().subscribe(
+      if (id) {
+            this.developerService.search({
+                query: id,
+                }).subscribe(
+                    (res: ResponseWrapper) => this.developers = res.json,
+                    (res: ResponseWrapper) => this.onError(res.json)
+                );
+            return;
+       }
+        this.developerService.query().subscribe(
             (res: ResponseWrapper) => {
                 this.developers = res.json;
             },
@@ -87,7 +119,16 @@ export class StudyFullComponent implements OnInit, OnDestroy {
     }
 
     loadSoftwareSystems(id) {
-      this.softwareSystemService.query().subscribe(
+      if (id) {
+            this.softwareSystemService.search({
+                query: id,
+                }).subscribe(
+                    (res: ResponseWrapper) => this.softwareSystems = res.json,
+                    (res: ResponseWrapper) => this.onError(res.json)
+                );
+            return;
+       }
+        this.softwareSystemService.query().subscribe(
             (res: ResponseWrapper) => {
                 this.softwareSystems = res.json;
             },
@@ -96,7 +137,16 @@ export class StudyFullComponent implements OnInit, OnDestroy {
     }
 
     loadInterviews(id) {
-      this.interviewService.query().subscribe(
+        if (id) {
+            this.interviewService.search({
+                query: id,
+                }).subscribe(
+                    (res: ResponseWrapper) => this.interviews = res.json,
+                    (res: ResponseWrapper) => this.onError(res.json)
+                );
+            return;
+       }
+        this.interviewService.query().subscribe(
             (res: ResponseWrapper) => {
                 this.interviews = res.json;
             },
@@ -105,7 +155,16 @@ export class StudyFullComponent implements OnInit, OnDestroy {
     }
 
     loadThinkAlouds(id) {
-      this.thinkAloudService.query().subscribe(
+      if (id) {
+            this.thinkAloudService.search({
+                query: id,
+                }).subscribe(
+                    (res: ResponseWrapper) => this.thinkAlouds = res.json,
+                    (res: ResponseWrapper) => this.onError(res.json)
+                );
+            return;
+       }
+        this.thinkAloudService.query().subscribe(
             (res: ResponseWrapper) => {
                 this.thinkAlouds = res.json;
             },
@@ -114,7 +173,16 @@ export class StudyFullComponent implements OnInit, OnDestroy {
     }
 
     loadVideos(id) {
-      this.videoService.query().subscribe(
+      if (id) {
+            this.videoService.search({
+                query: id,
+                }).subscribe(
+                    (res: ResponseWrapper) => this.videos = res.json,
+                    (res: ResponseWrapper) => this.onError(res.json)
+                );
+            return;
+       }
+        this.videoService.query().subscribe(
             (res: ResponseWrapper) => {
                 this.videos = res.json;
             },
@@ -123,9 +191,36 @@ export class StudyFullComponent implements OnInit, OnDestroy {
     }
 
     loadAudios(id) {
-      this.audioService.query().subscribe(
+      if (id) {
+            this.audioService.search({
+                query: id,
+                }).subscribe(
+                    (res: ResponseWrapper) => this.audios = res.json,
+                    (res: ResponseWrapper) => this.onError(res.json)
+                );
+            return;
+       }
+        this.audioService.query().subscribe(
             (res: ResponseWrapper) => {
                 this.audios = res.json;
+            },
+            (res: ResponseWrapper) => this.onError(res.json)
+        );
+    }
+
+    loadNotes(id) {
+      if (id) {
+            this.noteService.search({
+                query: id,
+                }).subscribe(
+                    (res: ResponseWrapper) => this.notes = res.json,
+                    (res: ResponseWrapper) => this.onError(res.json)
+                );
+            return;
+       }
+        this.noteService.query().subscribe(
+            (res: ResponseWrapper) => {
+                this.notes = res.json;
             },
             (res: ResponseWrapper) => this.onError(res.json)
         );
@@ -149,5 +244,82 @@ export class StudyFullComponent implements OnInit, OnDestroy {
 
     private onError(error) {
         this.alertService.error(error.message, null, null);
+    }
+
+    toggleDevelopers() {
+        if (this.expandDevelopers) {
+            this.expandDevelopers = false;
+        } else {
+            this.expandDevelopers = true;
+        }
+    }
+
+    toggleSoftwareSystems() {
+        if (this.expandSoftwareSystems) {
+            this.expandSoftwareSystems = false;
+        } else {
+            this.expandSoftwareSystems = true;
+        }
+    }
+
+    toggleInterviews(developerName) {
+        this.loadInterviews(developerName);
+        if (this.expandInterviews) {
+            this.expandInterviews = false;
+        } else {
+            this.expandInterviews = true;
+        }
+    }
+
+    toggleThinkAlouds(developerName) {
+        this.loadThinkAlouds(developerName);
+        if (this.expandThinkAlouds) {
+            this.expandThinkAlouds = false;
+        } else {
+            this.expandThinkAlouds = true;
+        }
+    }
+
+    toggleAudios(InterviewTag) {
+        this.loadAudios(InterviewTag);
+        if (this.expandAudios) {
+            this.expandAudios = false;
+        } else {
+            this.expandAudios = true;
+        }
+    }
+
+    toggleVideos(InterviewTag) {
+        this.loadVideos(InterviewTag);
+        if (this.expandVideos) {
+            this.expandVideos = false;
+        } else {
+            this.expandVideos = true;
+        }
+    }
+
+    toggleNotes(InterviewTag) {
+        this.loadNotes(InterviewTag);
+        if (this.expandNotes) {
+            this.expandNotes = false;
+        } else {
+            this.expandNotes = true;
+        }
+    }
+
+    expandCollapseDeveloper(developerName) {
+        if (this.expandDeveloper) {
+            this.expandDeveloper = false;
+        } else {
+            this.expandDeveloper = true;
+        }
+    }
+
+    expandCollapseInterview(interviewTag) {
+        if (this.expandInterview) {
+            this.expandInterview = false;
+        } else {
+            this.expandInterview = true;
+        }
     }
 }
